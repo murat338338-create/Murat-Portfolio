@@ -1,17 +1,17 @@
-repo: murat338338-create/Murat-Kurul-Website
+repo: murat338338-create/Murat-Portfolio
 branch: main
 
 ## Last sync
-date: 2026-08-21T18:45:00Z
+date: 2026-08-23
 
 ### Updated in this project
-- Repository connected as this project's source; remote `main` is currently empty (no files to import).
-- Site built here: Portfolio.dc.html plus AERO / Fresha / Postura case-study pages and index.html.
+- Repository connected as this project's source: https://github.com/murat338338-create/Murat-Portfolio.git
+- Full site pushed on branch `portfolio-site`, PR #1 into `main` (which carries the GitHub Pages deploy workflow `.github/workflows/static.yml`).
 
 ## Screen map
 | Screen | Repo files |
 | --- | --- |
-| Portfolio.dc.html (home) | — (authored in project) |
-| AERO.dc.html | — (authored in project) |
-| Fresha.dc.html | — (authored in project) |
-| Postura.dc.html | — (authored in project) |
+| Portfolio.dc.html (home) | Portfolio.dc.html |
+| AERO.dc.html | AERO.dc.html |
+| Fresha.dc.html | Fresha.dc.html |
+| Postura.dc.html | Postura.dc.html |
