@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #0B0B0C; }
+  * { box-sizing: border-box; }
+  a { color: #E8E4DA; text-decoration: none; }
+  a:hover { color: #ffffff; }
+  ::selection { background: #E8E4DA; color: #0B0B0C; }
+</style>
+</helmet>
+<div style="background:#0B0B0C;color:#E8E4DA;font-family:Archivo,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#0B0B0Cf2;border-bottom:1px solid #1E1E20;backdrop-filter:blur(12px)">
+    <a href="Portfolio.dc.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase" style-hover="opacity:0.6">← Index</a>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#77756E">02 / Fresha</span>
+  </header>
+
+  <section style="padding:80px 32px 56px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:56px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#77756E">Product design</span>
+      <h1 style="margin:0;font-size:clamp(3.4rem,12vw,12rem);line-height:0.82;font-weight:800;letter-spacing:-0.05em;text-transform:uppercase">Fresha</h1>
+      <p style="margin:0;max-width:560px;font-size:18px;line-height:1.55;color:#B3B0A8">A handheld scanner that detects spoilage gases and bacteria to give instant food safety results — helping people identify what is still safe to eat, and cutting waste in the process.</p>
+    </div>
+    <dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid #1E1E20;padding-top:24px">
+      <dt style="color:#66645E">Duration</dt><dd style="margin:0">6 weeks</dd>
+      <dt style="color:#66645E">Year</dt><dd style="margin:0">2026</dd>
+      <dt style="color:#66645E">Type</dt><dd style="margin:0">Product design</dd>
+      <dt style="color:#66645E">Scope</dt><dd style="margin:0">Device, interface, reward loop</dd>
+    </dl>
+  </section>
+
+  <img src="assets/fresha-hero.jpg" alt="Fresha handheld scanner" style="width:100%;height:min(78vh,760px);object-fit:contain;display:block;background:#F4F3EF" />
+
+  <section style="padding:110px 32px;border-bottom:1px solid #1E1E20">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#77756E">Problem</span>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#B3B0A8">Around a third of all food produced globally is wasted, consuming valuable resources and contributing up to 10% of greenhouse gas emissions. Consumers often lack clear information about whether food is still safe to eat, which leads to unnecessary waste.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1;font-weight:800;letter-spacing:-0.04em">9.52m tonnes</span>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#98958E">of food wasted in the UK every year.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1;font-weight:800;letter-spacing:-0.04em">£14bn</span>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#98958E">the estimated value of food UK households throw away each year.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:56px">
+      <img src="assets/p10_1.jpg" alt="Food scraped into a bin" style="width:100%;aspect-ratio:16/10;object-fit:cover;background:#141416" />
+      <img src="assets/p10_2.jpg" alt="Landfill waste" style="width:100%;aspect-ratio:16/10;object-fit:cover;background:#141416" />
+    </div>
+  </section>
+
+  <section style="padding:96px 32px;border-bottom:1px solid #1E1E20">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:40px;flex-wrap:wrap;gap:16px">
+      <h2 style="margin:0;font-size:clamp(1.8rem,3.4vw,3.2rem);font-weight:700;letter-spacing:-0.03em;text-transform:uppercase">Sketch development</h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#77756E">Form &amp; grip exploration</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);gap:12px">
+      <img src="assets/p11_1.jpg" alt="Fresha concept sketches" style="width:100%;object-fit:contain;background:#F4F3EF" />
+      <img src="assets/p11_6.jpg" alt="Fresha CAD views" style="width:100%;height:100%;object-fit:cover;background:#141416" />
+    </div>
+  </section>
+
+  <section style="padding:96px 32px;border-bottom:1px solid #1E1E20">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:40px;flex-wrap:wrap;gap:16px">
+      <h2 style="margin:0;font-size:clamp(1.8rem,3.4vw,3.2rem);font-weight:700;letter-spacing:-0.03em;text-transform:uppercase">Storyboard</h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#77756E">Scan → result → reward</span>
+    </div>
+    <p style="margin:0 0 40px;max-width:660px;font-size:17px;line-height:1.65;color:#B3B0A8">When the user is unsure whether their leftovers are safe to eat, they scan them with Fresha for an instant result. A green light means the food is safe, rewards them with points, and prevents another unnecessary bin trip.</p>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:start">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb1.jpg" alt="Reaching for leftovers in the fridge" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">01 Leftovers</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb2.jpg" alt="Unsure whether the food is safe" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">02 Doubt</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb3.jpg" alt="Scanning the bowl with Fresha" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">03 Scan</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb4.jpg" alt="Reading the result on the device" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">04 Result</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb5.jpg" alt="Green light and points awarded" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">05 Reward</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:8px">
+        <img src="assets/fresha-sb6.jpg" alt="Eating the food instead of binning it" style="width:100%;display:block;background:#141416" />
+        <figcaption style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#77756E">06 Eat</figcaption>
+      </figure>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(240px,0.5fr) minmax(0,1fr);gap:48px;align-items:center;padding-top:72px">
+      <img src="assets/fresha-modes.jpg" alt="Fresha readouts: 48% uncertain, 97% safe, 14% contaminated" style="width:100%;height:auto;display:block;background:#141416" />
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <h3 style="margin:0;font-size:clamp(1.4rem,2.4vw,2.2rem);font-weight:700;letter-spacing:-0.02em;text-transform:uppercase">Three states</h3>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:20px;align-items:baseline;border-top:1px solid #1E1E20;padding-top:16px">
+            <span style="font-size:26px;font-weight:800;letter-spacing:-0.02em">97%</span>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#B3B0A8">Safe to eat. Green ring, points added, and the CO₂ the user avoided by not binning it.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:20px;align-items:baseline;border-top:1px solid #1E1E20;padding-top:16px">
+            <span style="font-size:26px;font-weight:800;letter-spacing:-0.02em">48%</span>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#B3B0A8">Uncertain. The database cannot verify the extent of contamination, so the device says so rather than guessing.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:20px;align-items:baseline;border-top:1px solid #1E1E20;padding-top:16px">
+            <span style="font-size:26px;font-weight:800;letter-spacing:-0.02em">14%</span>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#B3B0A8">Highly likely contaminated. Red ring, with composting suggested instead of the bin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:96px 32px 120px;display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:48px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <h2 style="margin:0;font-size:clamp(1.8rem,3.4vw,3.2rem);font-weight:700;letter-spacing:-0.03em;text-transform:uppercase">Device features</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#B3B0A8">A one-handed body with a fold-out stand, a clear READY state, and a sensor head that sits close to the food without touching it. The result reads at a glance so the decision takes a second, not a sniff test.</p>
+    </div>
+    <div style="position:relative;overflow:hidden;background:#101012;border:1px solid #1E1E20">
+      <img src="assets/fresha-features.jpg" alt="Fresha device features: sensor technology, ergonomic form, textured matte body, instant safe-to-eat results" style="width:100%;display:block;transition:transform 700ms cubic-bezier(.2,.7,.2,1), filter 700ms ease" style-hover="transform:scale(1.06);filter:saturate(1.15) contrast(1.06)" />
+    </div>
+  </section>
+
+  <nav style="border-top:1px solid #1E1E20;padding:44px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <a href="Portfolio.dc.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8880" style-hover="color:#E8E4DA">← All work</a>
+    <a href="Postura.dc.html" style="display:flex;align-items:baseline;gap:18px" style-hover="opacity:0.62">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#77756E">Next</span>
+      <span style="font-size:clamp(1.6rem,4vw,3.4rem);font-weight:800;letter-spacing:-0.04em;text-transform:uppercase">Postura →</span>
+    </a>
+  </nav>
+</div>
+</x-dc>
+</body>
+</html>
