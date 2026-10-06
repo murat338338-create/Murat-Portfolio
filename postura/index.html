@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Postura — Murat Kurul</title>
+<meta name="description" content="Postura, an Arduino wearable trained with Edge Impulse to recognise poor posture from motion data and vibrate to correct it.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="canonical" href="https://muratkurul.com/postura/">
+<meta property="og:title" content="Postura — Murat Kurul">
+<meta property="og:description" content="A posture-correcting wearable that learns from motion data.">
+<meta property="og:image" content="https://muratkurul.com/assets/more-postura.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Instrument+Serif&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="site-header__name" href="../">Murat Kurul</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="../#work">Work</a>
+    <a href="../#about">About</a>
+    <a href="../#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="cs-hero">
+    <div class="cs-hero__intro">
+      <span class="label">More work · Wearable technology</span>
+      <h1 class="display display--xl">Postura</h1>
+      <p class="lede">An Arduino wearable that uses motion sensors to spot poor posture through the day, and vibrates when it finds it.</p>
+      <dl class="cs-meta">
+        <div><dt class="label">Duration</dt><dd>4 weeks</dd></div>
+        <div><dt class="label">Year</dt><dd>2024</dd></div>
+        <div><dt class="label">Type</dt><dd>Wearable tech &amp; product design</dd></div>
+        <div><dt class="label">Tools</dt><dd>Arduino, Edge Impulse</dd></div>
+      </dl>
+    </div>
+    <figure class="cs-hero__media figure">
+      <img src="../assets/sm/more-postura.jpg" srcset="../assets/sm/more-postura.jpg 800w, ../assets/more-postura.jpg 1600w" sizes="(min-width: 900px) 52vw, 100vw" width="1600" height="1531" alt="Postura bands in a colour range: blue, purple, lime, grey, orange and red" fetchpriority="high" decoding="async">
+      <figcaption>Colour range tested across the bands.</figcaption>
+    </figure>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section__text">
+      <span class="label">Storyboard</span>
+      <h2 class="heading">Catch the slouch before it becomes a habit.</h2>
+      <p class="body-copy">The user gradually starts to slouch while working. Postura detects the change and vibrates, a reminder to sit up before it settles into a habit.</p>
+    </div>
+    <div class="stack">
+      <figure class="figure">
+        <img src="../assets/sm/p14_2.jpg" srcset="../assets/sm/p14_2.jpg 800w, ../assets/p14_2.jpg 900w" sizes="(min-width: 900px) 55vw, 100vw" width="900" height="338" alt="Four-panel storyboard of a desk worker slouching and being prompted by the band" loading="lazy" decoding="async" class="paper">
+      </figure>
+      <figure class="figure">
+        <img src="../assets/p14_3.jpg" width="575" height="423" alt="Line drawing of the band vibrating on the wrist" loading="lazy" decoding="async" class="paper">
+      </figure>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section__text">
+      <span class="label">Coding</span>
+      <h2 class="heading">Trained on motion-sensor data</h2>
+      <p class="body-copy">I used Arduino and Edge Impulse to train Postura to recognise good and poor posture from motion data, then tuned the threshold so the haptic prompt fires on a real slouch rather than every small movement.</p>
+    </div>
+    <figure class="figure">
+      <img src="../assets/sm/p14_1.jpg" srcset="../assets/sm/p14_1.jpg 800w, ../assets/p14_1.jpg 900w" sizes="(min-width: 900px) 55vw, 100vw" width="900" height="698" alt="Edge Impulse dashboard showing the posture training data" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <nav class="next" aria-label="More projects">
+    <a class="line-link" href="../#work">← All work</a>
+    <a class="next__project" href="../aero/">AERØ →</a>
+  </nav>
+
+  <footer class="site-footer label wrap">
+    <span>Murat Kurul — Portfolio 26/27</span>
+    <a href="mailto:murat338338@gmail.com">murat338338@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
