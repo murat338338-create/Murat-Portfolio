@@ -512,6 +512,9 @@ html:not(.js) .carousel:not(.is-ready) .carousel__card {
 .mosaic--three > :first-child { grid-row: auto; }
 .mosaic--pair { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; aspect-ratio: 4 / 2.6; }
 .mosaic--pair > :first-child { grid-row: auto; }
+.mosaic img.fit-contain { object-fit: contain; }
+.fit-forest { background: #1F3A29 !important; }
+.fit-mint { background: #EEF1EC !important; }
 a.mosaic { transition: opacity 200ms ease; }
 a.mosaic:hover { opacity: 0.88; }
 
