@@ -33,11 +33,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Collect the public site
+        # Only these files are published; notes and working files stay in the repo.
+        run: |
+          mkdir -p _site/uploads
+          cp -R index.html site.css site.js favicon.svg *.dc.html assets aero fresha liman postura night-court privacy _site/
+          cp uploads/Murat_Kurul_Portfolio.pdf uploads/Murat_Kurul_CV.pdf _site/uploads/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

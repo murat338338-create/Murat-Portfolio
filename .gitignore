@@ -1,1 +1,8 @@
 .DS_Store
+
+# Working files kept on this computer only (not published)
+uploads/*
+!uploads/Murat_Kurul_Portfolio.pdf
+!uploads/Murat_Kurul_CV.pdf
+.thumbnail
+github.md
