@@ -676,6 +676,19 @@ a.more-card h3::after { content: " →"; color: var(--muted); }
   padding-block: 22px calc(22px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
 }
+.site-footer__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.site-footer a { display: inline-flex; align-items: center; min-height: 24px; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; transition: color 160ms ease; }
+.site-footer a:hover { color: var(--text); }
+
+/* ---------- Privacy notice ---------- */
+.legal { max-width: 720px; padding: calc(var(--header-h) + 40px) var(--gutter) var(--section-gap); }
+.legal h1 { margin: 12px 0 18px; }
+.legal h2 { margin: 44px 0 10px; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.015em; }
+.legal p, .legal li { color: var(--text-2); }
+.legal p { margin: 0 0 12px; }
+.legal ul { margin: 0 0 12px; padding-left: 1.2em; }
+.legal a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.legal__summary { margin: 0 0 8px; padding: 18px 20px; border: 1px solid var(--line-strong); color: var(--text); }
 
 /* ---------- Case study template ---------- */
 
