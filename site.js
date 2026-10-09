@@ -1,11 +1,78 @@
 (function () {
   "use strict";
 
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function whenVisible(el, onChange) {
+    if (!("IntersectionObserver" in window)) { onChange(true); return; }
+    new IntersectionObserver(function (entries) { onChange(entries[0].isIntersecting); }).observe(el);
+  }
+
+  /* ---------- Scroll reveals ---------- */
+
+  var revealables = document.querySelectorAll("[data-reveal], [data-reveal-media]");
+  if (revealables.length) {
+    if (!("IntersectionObserver" in window) || reduceMotion.matches) {
+      revealables.forEach(function (el) { el.classList.add("is-in"); });
+    } else {
+      var revealer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            revealer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+      revealables.forEach(function (el) { revealer.observe(el); });
+    }
+  }
+
+  /* ---------- Marquee: stop it when nobody can see it ---------- */
+
+  document.querySelectorAll(".marquee").forEach(function (m) {
+    whenVisible(m, function (v) { m.classList.toggle("is-paused", !v); });
+  });
+
+  /* ---------- Fresha readout: cycle through the device's three answers ---------- */
+
+  var STATES = [
+    { state: "safe", pct: 97, text: "Safe to eat · points earned" },
+    { state: "unsure", pct: 48, text: "Can’t guarantee it · use your judgement" },
+    { state: "bad", pct: 14, text: "Highly likely contaminated" }
+  ];
+  document.querySelectorAll("[data-readout]").forEach(function (el) {
+    var value = el.querySelector(".readout__value");
+    var caption = el.querySelector(".readout__caption");
+    var i = 0;
+    var timer = 0;
+    function show(s) {
+      el.dataset.state = s.state;
+      el.style.setProperty("--pct", s.pct);
+      value.textContent = s.pct + "%";
+      caption.textContent = s.text;
+    }
+    show(STATES[0]);
+    if (reduceMotion.matches) return;
+    whenVisible(el, function (v) {
+      clearInterval(timer);
+      if (v) timer = setInterval(function () { i = (i + 1) % STATES.length; show(STATES[i]); }, 2600);
+    });
+  });
+
+  /* ---------- Hero carousel ---------- */
+
   var stage = document.querySelector("[data-carousel]");
   if (!stage) return;
 
+  var hero = document.querySelector(".hero");
   var ring = stage.querySelector(".carousel__ring");
   var cards = Array.prototype.slice.call(ring.querySelectorAll(".carousel__card"));
+  var ghost = document.querySelector("[data-ghost]");
+  var ghostText = ghost && ghost.querySelector("span");
+  var nowNum = document.querySelector("[data-now-num]");
+  var nowName = document.querySelector("[data-now-name]");
+  var nowKind = document.querySelector("[data-now-kind]");
+  var nowOpen = document.querySelector("[data-now-open]");
   var pauseBtn = document.querySelector("[data-carousel-pause]");
   var prevBtn = document.querySelector("[data-carousel-prev]");
   var nextBtn = document.querySelector("[data-carousel-next]");
@@ -13,19 +80,43 @@
   var n = cards.length;
   var step = 360 / n;
   var DEG_PER_MS = 0.0054;
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   var angle = 0;
   var target = null;
   var vel = 0;
   var drag = null;
   var radius = 0;
+  var front = -1;
   var paused = reduceMotion.matches;
   var hovering = false;
   var visible = true;
   var suppressUntil = 0;
   var last = performance.now();
   var raf = 0;
+  var swapTimer = 0;
+
+  function setFront(i) {
+    if (i === front) return;
+    front = i;
+    var d = cards[i].dataset;
+    if (hero && d.tone) hero.style.setProperty("--tone", d.tone);
+    if (nowNum) nowNum.textContent = d.num;
+    if (nowName) nowName.textContent = d.name;
+    if (nowKind) nowKind.textContent = d.kind;
+    if (nowOpen) {
+      nowOpen.href = cards[i].getAttribute("href");
+      nowOpen.setAttribute("aria-label", "Open " + d.name);
+    }
+    if (ghostText && ghostText.textContent !== d.name) {
+      clearTimeout(swapTimer);
+      ghost.classList.add("is-swapping");
+      swapTimer = setTimeout(function () {
+        ghostText.textContent = d.name;
+        ghost.style.setProperty("--chars", d.name.length);
+        ghost.classList.remove("is-swapping");
+      }, reduceMotion.matches ? 0 : 260);
+    }
+  }
 
   function layout() {
     // Card size follows the viewport so it matches the height the stylesheet reserves.
@@ -45,13 +136,17 @@
 
   function render() {
     ring.style.transform = "translateZ(" + -radius + "px) rotateY(" + angle + "deg)";
+    var best = 0;
+    var bestFacing = -2;
     for (var i = 0; i < n; i++) {
       var rel = (((i * step + angle) % 360) + 360) % 360;
       var facing = Math.cos((rel * Math.PI) / 180);
       var card = cards[i];
       card.style.opacity = facing < -0.05 ? "0" : (0.22 + 0.78 * ((facing + 1) / 2)).toFixed(3);
       card.style.pointerEvents = facing > 0.55 ? "auto" : "none";
+      if (facing > bestFacing) { bestFacing = facing; best = i; }
     }
+    setFront(best);
   }
 
   function tick(t) {
@@ -148,14 +243,14 @@
   if (prevBtn) prevBtn.addEventListener("click", function () { nudge(1); });
   if (nextBtn) nextBtn.addEventListener("click", function () { nudge(-1); });
 
-  reduceMotion.addEventListener && reduceMotion.addEventListener("change", function (e) { setPaused(e.matches); });
-
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting;
-      if (visible) start(); else stop();
-    }).observe(stage);
+  if (reduceMotion.addEventListener) {
+    reduceMotion.addEventListener("change", function (e) { setPaused(e.matches); });
   }
+
+  whenVisible(stage, function (v) {
+    visible = v;
+    if (v) start(); else stop();
+  });
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stop(); else start();
   });
