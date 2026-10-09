@@ -56,22 +56,21 @@ The default theme is near-black with a warm off-white text colour; there is no h
 
 ## Themes
 
-Themes are applied with a class on `body` and redefine the same tokens. Only the values below change.
+Each project has its own palette, taken from its pages in the portfolio PDF. A palette is applied with a class that redefines the same tokens: `theme-*` on a case study's `body`, or `tone-*` on a single project band on the home page. Only the values below change.
 
-| Token | Default | `theme-liman` | `theme-night` |
-| --- | --- | --- | --- |
-| bg | #0B0B0C | #F1ECE2 | #1C1C1E |
-| surface | #141416 | #E6DFD1 | #252527 |
-| line | #232326 | #D8CFBF | #333336 |
-| line-strong | #34343A | #C3B8A4 | #46464A |
-| text | #E8E4DA | #1F2B3B | #ECE5D3 |
-| text-2 | #B3B0A8 | #364255 | #C9C2B0 |
-| muted | #8E8B83 | #5B6575 | #9E9787 |
-| accent | #E8E4DA | #A54A27 | #C49A3E |
-| on-accent | #0B0B0C | #F1ECE2 | #1C1C1E |
-| lacquer | — | — | #A8261E |
+| Token | Default | `theme-liman` | `tone-terracotta` | `theme-fresha` | `theme-postura` | `theme-night` |
+| --- | --- | --- | --- | --- | --- | --- |
+| bg | #0B0B0C | #F1ECE2 | #A54A27 | #1F3A29 | #DDE1E7 | #1D2338 |
+| surface | #141416 | #E6DFD1 | #933F20 | #284A35 | #CDD3DB | #252C45 |
+| line | #232326 | #D8CFBF | rgba(241,236,226,0.28) | #34573F | #C3C9D2 | #323A57 |
+| line-strong | #34343A | #C3B8A4 | rgba(241,236,226,0.55) | #4C7457 | #A6AEBA | #4A5378 |
+| text | #E8E4DA | #1F2B3B | #F1ECE2 | #ECEEEA | #0E1116 | #ECE6DA |
+| text-2 | #B3B0A8 | #364255 | #F1ECE2 | #CBD8C8 | #2E3540 | #CBC6BC |
+| muted | #8E8B83 | #5B6575 | #F1ECE2 | #A8BCA5 | #4A5260 | #A6A29B |
+| accent | #E8E4DA | #A54A27 | #F1ECE2 | #A9C9A4 | #1A56A8 | #C9A14A |
+| on-accent | #0B0B0C | #F1ECE2 | #A54A27 | #1F3A29 | #FFFFFF | #1D2338 |
 
-`theme-liman` darkens the label's terracotta for `accent` so small text on it passes AA. In `theme-night`, `lacquer` is used only as a block background with rice-paper text, never as a text colour.
+`theme-night` adds `signal` (#C0272D), used only for blocks and swatches, and `flash`, a violet-to-teal gradient used only as a thin rule, as on the jacket's seam tape. Liman's terracotta is darkened for text so small type passes AA.
 
 ## Typography
 
@@ -83,4 +82,6 @@ Pages use a single fluid side gutter that is never narrower than a phone's 16px 
 
 ## Components
 
-The hero carousel positions cards once and rotates only the ring's transform each frame. It pauses when off-screen, when the tab is hidden, and when the user prefers reduced motion, and it always offers previous, pause/play and next buttons. Carousel cards duplicate destinations in the work list, so the ring is hidden from assistive technology. Grids built from hairline cells give each cell its own border, so incomplete rows never show an empty filled block.
+The hero is a stage that takes the colour of the project in front: as the 3D carousel turns, the background glow and a giant outlined project name crossfade to that project's tone, and a "now showing" bar names the project with a direct link. The ring rotates one transform per frame, pauses off-screen, in hidden tabs and for reduced motion, and always offers previous, pause/play and next buttons. Carousel cards duplicate destinations in the work list, so the ring is hidden from assistive technology; the bar's link is the keyboard route.
+
+On the home page each project sits in a full-width band in its own palette, like flipping through the printed portfolio. Text and images reveal on scroll only when motion is allowed. Fresha's band includes a live readout that cycles the device's three answers. Grids built from hairline cells give each cell its own border, so incomplete rows never show an empty filled block.
