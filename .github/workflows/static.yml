@@ -38,7 +38,7 @@ jobs:
         run: |
           mkdir -p _site/uploads
           cp -R index.html site.css site.js favicon.svg *.dc.html assets aero fresha liman postura night-court privacy _site/
-          cp uploads/Murat_Kurul_Portfolio.pdf uploads/Murat_Kurul_CV.pdf _site/uploads/
+          cp uploads/Murat_Kurul_CV_and_Portfolio.pdf _site/uploads/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
