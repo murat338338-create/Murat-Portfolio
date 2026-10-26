@@ -59,6 +59,16 @@
     });
   });
 
+  /* ---------- Before / after comparison ---------- */
+
+  document.querySelectorAll("[data-compare]").forEach(function (el) {
+    var frame = el.querySelector(".compare__frame");
+    var range = el.querySelector(".compare__range");
+    function set() { frame.style.setProperty("--pos", range.value + "%"); }
+    range.addEventListener("input", set);
+    set();
+  });
+
   /* ---------- Hero carousel ---------- */
 
   var stage = document.querySelector("[data-carousel]");
