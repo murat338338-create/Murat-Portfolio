@@ -598,6 +598,193 @@ a.more-card img { transition: opacity 200ms ease; }
 a.more-card:hover img { opacity: 0.85; }
 a.more-card h3::after { content: " →"; color: var(--muted); }
 
+/* ---------- OUTPACE feature card (game HUD look, the game's own red neon) ---------- */
+
+.outpace {
+  --neon: #FF3B47;
+  --neon-soft: rgba(255, 59, 71, 0.22);
+  --void: #07070A;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 32px);
+  margin-bottom: clamp(40px, 6vw, 64px);
+  padding: clamp(18px, 3vw, 36px);
+  border: 1px solid rgba(255, 59, 71, 0.28);
+  background:
+    radial-gradient(90% 70% at 85% 0%, rgba(255, 59, 71, 0.16), transparent 60%),
+    radial-gradient(60% 60% at 0% 100%, rgba(255, 59, 71, 0.08), transparent 70%),
+    var(--void);
+  color: #F2EEE8;
+}
+/* HUD corner brackets */
+.outpace::before, .outpace::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--neon);
+  filter: drop-shadow(0 0 6px var(--neon-soft));
+  pointer-events: none;
+}
+.outpace::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.outpace::after { right: -1px; bottom: -1px; border-left: 0; border-top: 0; }
+
+.outpace__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .outpace__top { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+}
+
+.outpace__shot {
+  position: relative;
+  margin: 0;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+  background: #000;
+}
+.outpace__shot img { width: 100%; transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease; }
+.outpace__shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.outpace:hover .outpace__shot img { transform: scale(1.03); filter: saturate(1.15); }
+
+.outpace__info { display: flex; flex-direction: column; gap: 18px; container-type: inline-size; min-width: 0; }
+.outpace__eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #FF8A92; }
+.outpace__dot {
+  width: 8px; height: 8px;
+  background: var(--neon);
+  box-shadow: 0 0 10px var(--neon), 0 0 22px var(--neon-soft);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .outpace__dot { animation: outpace-pulse 1.6s ease-in-out infinite; }
+}
+@keyframes outpace-pulse { 50% { opacity: 0.35; } }
+
+.outpace__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 15.5cqi, 4.6rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-style: italic;
+  padding-right: 0.08em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #FFF5F5;
+  text-shadow: 0 0 18px rgba(255, 59, 71, 0.55), 0 0 2px #FF3B47;
+}
+.outpace__pitch { margin: 0; max-width: 32em; font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.55; color: #E0DAD3; }
+.outpace__role { margin: 0; font-size: 14px; color: #B9B2AA; }
+
+.outpace__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.outpace__stats > div {
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(255, 59, 71, 0.35);
+  background: rgba(255, 59, 71, 0.06);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.outpace__stats dt {
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1;
+  color: #FF6670;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(255, 59, 71, 0.45);
+}
+.outpace__stats dd {
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C9C1B8;
+}
+.outpace .note { margin: 0; color: #A39C94; }
+
+/* Before / after comparison */
+.compare { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.compare__frame {
+  --pos: 50%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1366 / 590;
+  background: #000;
+  border: 1px solid rgba(255, 59, 71, 0.3);
+  touch-action: pan-y;
+}
+.compare__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.compare__after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos)); }
+.compare__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--neon);
+  box-shadow: 0 0 12px var(--neon), 0 0 28px var(--neon-soft);
+  pointer-events: none;
+}
+.compare__handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px solid var(--neon);
+  background: rgba(7, 7, 10, 0.75);
+  box-shadow: 0 0 16px var(--neon-soft);
+}
+.compare__range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+.compare__frame:has(.compare__range:focus-visible) .compare__handle::after { outline: 2px solid #fff; outline-offset: 4px; }
+.compare__tag {
+  position: absolute;
+  bottom: 12px;
+  padding: 5px 9px;
+  background: rgba(7, 7, 10, 0.78);
+  color: #F2EEE8;
+  pointer-events: none;
+}
+.compare__tag--before { left: 12px; }
+.compare__tag--after { right: 12px; border: 1px solid rgba(255, 59, 71, 0.6); color: #FF8A92; }
+@media (max-width: 640px) {
+  .compare__frame { aspect-ratio: 4 / 3; }
+  .compare__img { object-position: 42% 50%; }
+  .compare__handle::after { width: 28px; height: 28px; }
+  .compare__tag { bottom: 8px; padding: 4px 7px; font-size: 10px; }
+  .compare__tag--before { left: 8px; }
+  .compare__tag--after { right: 8px; }
+}
+.compare figcaption { max-width: 52em; font-size: 14px; line-height: 1.55; color: #C9C1B8; }
+.compare figcaption .label { margin-right: 8px; color: #FF8A92; }
+
 /* ---------- About ---------- */
 
 .about {
