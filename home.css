@@ -672,6 +672,10 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
 }
 @media (max-width: 600px) {
   :root { --section: 76px; }
+  /* Compact ledgers wrap their right-hand label under the name instead of colliding with it. */
+  .ledger--compact { grid-template-columns: auto minmax(0, 1fr); row-gap: 2px; }
+  .ledger--compact .ledger__year { grid-column: 2; justify-self: start; text-align: left; }
+  .ledger--compact .ledger__year:empty { display: none; }
   body { font-size: 16px; }
   .facts { grid-template-columns: 1fr; gap: 0; }
   .facts div { padding: 12px 0; }
@@ -762,3 +766,8 @@ html:not(.has-mouse) .index__thumb, html:not(.has-mouse) .cursor { display: none
   :root { --ink-3: #4A4D58; --line: rgba(27, 31, 44, 0.35); }
   .chip, .seg { background: var(--paper); box-shadow: 0 0 0 1px var(--ink); }
 }
+
+/* Smooth cross-page transitions where supported; project titles glide into their case study (see case.css). */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 420ms; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }

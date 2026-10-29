@@ -48,9 +48,7 @@ omitted:
 
 ## Overview
 
-A personal portfolio presenting apparel, product and brand projects to design teams. This file governs the case-study pages (aero/, fresha/, liman/, postura/, night-court/, privacy/): a dark editorial frame with oversized uppercase display type, monospaced uppercase labels and full-bleed project imagery. Each case study can switch to its project's own palette so the page reads like that project's brand book.
-
-The home page uses its own light Harbour theme, documented in DESIGN-home.md.
+A personal portfolio presenting apparel, product and brand projects to design teams. Every page of the site, the home page, the case studies and the privacy page, now uses the light Harbour theme documented in DESIGN-home.md (home.css, case.css). The dark theme below is retired: it is kept only as a record of the previous design, and site.css/site.js are no longer used by any page.
 
 ## Colors
 
