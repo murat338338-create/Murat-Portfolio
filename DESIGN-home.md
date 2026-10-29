@@ -1,7 +1,7 @@
 ---
-version: prototype
+version: 1
 name: Murat Kurul Portfolio — Harbour theme
-description: Light, editorial prototype of the portfolio home page. An arc of work rises over dusk on the bay of İzmir, then the full site follows on warm paper. Lives only in /arc on the arc-prototype branch; the live site and DESIGN.md at the root are unchanged.
+description: The home page of muratkurul.com (index.html, home.css, home.js, assets/home/). An arc of work rises over dusk on the bay of İzmir, then the full portfolio follows on warm paper. Case-study pages keep the dark theme in DESIGN.md.
 colors:
   paper: "#F4EFE6"
   paper-2: "#ECE5D8"

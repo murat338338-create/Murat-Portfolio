@@ -48,7 +48,9 @@ omitted:
 
 ## Overview
 
-A personal portfolio presenting apparel, product and brand projects to design teams. The home page is a dark editorial frame: oversized uppercase display type, monospaced uppercase labels, and full-bleed project imagery led by a draggable 3D carousel. Each case study can switch to its project's own palette so the page reads like that project's brand book.
+A personal portfolio presenting apparel, product and brand projects to design teams. This file governs the case-study pages (aero/, fresha/, liman/, postura/, night-court/, privacy/): a dark editorial frame with oversized uppercase display type, monospaced uppercase labels and full-bleed project imagery. Each case study can switch to its project's own palette so the page reads like that project's brand book.
+
+The home page uses its own light Harbour theme, documented in DESIGN-home.md.
 
 ## Colors
 
@@ -82,6 +84,6 @@ Pages use a single fluid side gutter that is never narrower than a phone's 16px 
 
 ## Components
 
-The hero is a stage that takes the colour of the project in front: as the 3D carousel turns, the background glow and a giant outlined project name crossfade to that project's tone, and a "now showing" bar names the project with a direct link. The ring rotates one transform per frame, pauses off-screen, in hidden tabs and for reduced motion, and always offers previous, pause/play and next buttons. Carousel cards duplicate destinations in the work list, so the ring is hidden from assistive technology; the bar's link is the keyboard route.
+The former home page (replaced by the Harbour theme; kept here for the shared tokens): its hero was a stage that took the colour of the project in front: as the 3D carousel turns, the background glow and a giant outlined project name crossfade to that project's tone, and a "now showing" bar names the project with a direct link. The ring rotates one transform per frame, pauses off-screen, in hidden tabs and for reduced motion, and always offers previous, pause/play and next buttons. Carousel cards duplicate destinations in the work list, so the ring is hidden from assistive technology; the bar's link is the keyboard route.
 
 On the home page each project sits in a full-width band in its own palette, like flipping through the printed portfolio. Text and images reveal on scroll only when motion is allowed. Fresha's band includes a live readout that cycles the device's three answers. Grids built from hairline cells give each cell its own border, so incomplete rows never show an empty filled block.

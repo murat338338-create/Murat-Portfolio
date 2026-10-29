@@ -140,11 +140,11 @@
   /* ---------- Cards ---------- */
 
   var PROJECTS = {
-    aero:    { num: "01", name: "AERØ",        kind: "Sport product and brand",      href: "../aero/" },
-    fresha:  { num: "02", name: "Fresha",      kind: "Food-safety scanner and app",  href: "../fresha/" },
-    liman:   { num: "03", name: "Liman",       kind: "My own label",                 href: "../liman/" },
-    postura: { num: "04", name: "Postura",     kind: "Posture wearable",             href: "../postura/" },
-    night:   { num: "05", name: "Night Court", kind: "Streetball warm-up capsule",   href: "../night-court/" },
+    aero:    { num: "01", name: "AERØ",        kind: "Sport product and brand",      href: "aero/" },
+    fresha:  { num: "02", name: "Fresha",      kind: "Food-safety scanner and app",  href: "fresha/" },
+    liman:   { num: "03", name: "Liman",       kind: "My own label",                 href: "liman/" },
+    postura: { num: "04", name: "Postura",     kind: "Posture wearable",             href: "postura/" },
+    night:   { num: "05", name: "Night Court", kind: "Streetball warm-up capsule",   href: "night-court/" },
     anatude: { num: "06", name: "Anatude",     kind: "Modular outdoor system",       href: "#anatude" },
     ring:    { num: "10", name: "Signet ring", kind: "Hand-made silver",             href: "#more" }
   };
@@ -165,7 +165,7 @@
       a.href = PROJECTS[c[0]].href;
       a.tabIndex = -1;
       a.draggable = false;
-      a.innerHTML = '<img src="../assets/card/' + c[1] + '.jpg" alt="" decoding="async" draggable="false">';
+      a.innerHTML = '<img src="assets/card/' + c[1] + '.jpg" alt="" decoding="async" draggable="false">';
       ring.appendChild(a);
       cards.push({ el: a, project: c[0], fly: new Spring(0.72, 0.62, reduce ? 1 : 0), launch: null, delay: 0, hover: 0, fade: reduce ? 1 : 0, started: false, z: null, hidden: null });
     });
