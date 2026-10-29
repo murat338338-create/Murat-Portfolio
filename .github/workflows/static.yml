@@ -37,7 +37,7 @@ jobs:
         # Only these files are published; notes and working files stay in the repo.
         run: |
           mkdir -p _site/uploads
-          cp -R index.html site.css site.js home.css home.js favicon.svg *.dc.html assets aero fresha liman postura night-court privacy _site/
+          cp -R index.html site.css site.js home.css home.js case.css case.js favicon.svg *.dc.html assets aero fresha liman postura night-court privacy _site/
           cp uploads/Murat_Kurul_CV_and_Portfolio.pdf _site/uploads/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

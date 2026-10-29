@@ -1,0 +1,187 @@
+/* Case-study pages in the Harbour theme. Loaded after home.css, which supplies the tokens,
+   type, header pill, grain, edge blur, ledgers, frames, links and footer. See DESIGN-home.md. */
+
+body.case { background: var(--bg, var(--paper)); }
+
+/* Reading progress: a hairline across the very top of the window. */
+.progress { position: fixed; z-index: 41; inset: 0 0 auto; height: 2px; pointer-events: none; }
+.progress span { display: block; height: 100%; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ---------- Header of the case ---------- */
+
+.case-hero { padding-top: calc(var(--header-h) + env(safe-area-inset-top) + clamp(40px, 7vw, 96px)); }
+.case-back { margin-bottom: clamp(28px, 4vw, 48px); font-size: 15px; }
+.case-title {
+  margin-top: clamp(20px, 3vw, 40px);
+  font: 400 clamp(72px, 15vw, 248px)/0.84 var(--serif); letter-spacing: -0.045em;
+}
+.case-title .jp { display: block; margin-bottom: 14px; font: 500 15px/1 var(--sans); letter-spacing: 0.3em; color: var(--ink-3); }
+.case-line { margin-top: clamp(16px, 2vw, 24px); font: italic 400 clamp(24px, 2.6vw, 38px)/1.15 var(--serif); letter-spacing: -0.01em; }
+.case-intro {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 40px;
+  margin-top: clamp(40px, 5vw, 72px);
+}
+.case-intro .lede { grid-column: 1 / span 7; max-width: 30ch; }
+.case-facts { grid-column: 9 / span 4; align-self: start; }
+.case-facts div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line-2); font-size: 15px; }
+.case-facts div:last-child { border-bottom: 1px solid var(--line-2); }
+.case-facts dt { color: var(--ink-3); }
+.case-facts dt.is-role { color: var(--accent); font-weight: 500; }
+
+.case-cover { margin-top: clamp(56px, 7vw, 104px); }
+.case-cover .frame { aspect-ratio: 16 / 9; }
+.case-cover .frame--contain { background: transparent; }
+.case-cover .frame--contain img { object-fit: contain; padding: 3%; }
+.case-cover figcaption, .case-media figcaption { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); max-width: 70ch; }
+
+/* ---------- Body: a sticky index beside numbered chapters ---------- */
+
+.case-body {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px);
+  padding-top: var(--section);
+}
+.case-toc { grid-column: 1 / span 2; position: sticky; top: calc(var(--header-h) + 48px); align-self: start; }
+.case-toc p { font-size: 13px; color: var(--ink-3); padding-bottom: 10px; border-bottom: 1px solid var(--line-2); }
+.case-toc ol { margin-top: 6px; }
+.case-toc a {
+  position: relative; display: grid; grid-template-columns: 2em 1fr; gap: 4px; padding: 7px 0;
+  font-size: 14px; line-height: 1.3; color: var(--ink-3); text-decoration: none;
+  transition: color var(--ui) var(--ease-out);
+}
+.case-toc a span:first-child { font-variant-numeric: tabular-nums; }
+.case-toc a:hover, .case-toc a[aria-current="true"] { color: var(--ink); }
+.case-toc a[aria-current="true"] span:first-child { color: var(--accent); }
+.case-chapters { grid-column: 4 / span 9; }
+
+.case-chapter { padding-bottom: clamp(96px, 11vw, 168px); scroll-margin-top: calc(var(--header-h) + 32px); }
+.case-chapter:last-child { padding-bottom: 0; }
+.case-h2 { font: 400 var(--t-h2)/0.98 var(--serif); letter-spacing: -0.022em; max-width: 18ch; text-wrap: balance; }
+.case-text { margin-top: clamp(20px, 2.4vw, 32px); max-width: 38em; }
+.case-text .body { max-width: none; }
+.case-text .body + .body { margin-top: 1em; }
+.case-text .note, .case-media .note { margin-top: 16px; font-size: 13.5px; color: var(--ink-3); }
+
+/* Media follows the text, wider than it, and opens with a curtain. */
+.case-media { margin-top: clamp(32px, 4vw, 56px); }
+.case-media + .case-media { margin-top: clamp(16px, 2vw, 24px); }
+.case-media .frame img { width: 100%; height: auto; }
+/* Paper scans multiply into the page tint; the frame carries the same tint so the curtain's clip doesn't flatten the blend onto white. */
+.case-media .frame.is-paper { background: var(--bg, var(--paper)); }
+.case-media .frame.is-paper img { mix-blend-mode: multiply; }
+/* Cut-out products float on the tint; padding leaves room for the shadow inside the curtain's clip. */
+.frame.is-cutout { background: transparent; }
+.frame.is-cutout img { filter: drop-shadow(0 14px 16px rgba(27, 31, 44, 0.12)) drop-shadow(0 3px 4px rgba(27, 31, 44, 0.07)); }
+.case-media .frame.is-cutout img { padding: 2% 4% 7%; }
+.case-media.is-narrow { max-width: 520px; }
+.case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); align-items: start; }
+.case-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-grid .frame img { aspect-ratio: auto; }
+
+/* Wide sheets scroll sideways on small screens instead of shrinking past legibility. */
+.pan { overflow-x: auto; border-radius: var(--r-md); background: var(--bg, var(--paper)); -webkit-overflow-scrolling: touch; }
+.pan img { width: 100%; min-width: 760px; height: auto; mix-blend-mode: multiply; }
+.pan:focus-visible { outline-offset: 4px; }
+.pan-hint { display: none; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
+@media (max-width: 760px) { .pan-hint { display: block; } }
+
+/* Term and description pairs on hairlines. */
+.callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); column-gap: clamp(16px, 2vw, 32px); margin-top: 28px; }
+.callouts div { padding: 14px 0 16px; border-top: 1px solid var(--line-2); }
+.callouts dt { font-weight: 500; font-size: 15.5px; }
+.callouts dd { margin-top: 4px; font-size: 15px; color: var(--ink-2); }
+
+/* Colour palettes, as on Liman and Night Court. */
+.palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0 clamp(16px, 2vw, 32px); margin-top: 28px; }
+.palette div { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line-2); }
+.palette .chip-swatch { grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(27, 31, 44, 0.12); }
+.palette dt { font-weight: 500; font-size: 15px; }
+.palette dd { font-size: 13.5px; color: var(--ink-3); }
+.palette code { font: inherit; font-variant-numeric: tabular-nums; }
+
+.keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.keywords li { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13.5px; }
+.script { font-family: "Caveat Brush", var(--serif); }
+.case-tagline { margin-top: 18px; font-size: 30px; line-height: 1; color: var(--accent); }
+.flash-rule { height: 3px; width: 120px; margin: 24px 0 0; border: 0; border-radius: 3px; background: linear-gradient(90deg, #8B5CF6, #14B8A6); }
+
+.big-stat { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line-2); }
+.big-stat dt { font: 400 clamp(48px, 6vw, 88px)/0.95 var(--serif); letter-spacing: -0.03em; }
+.big-stat dd { margin-top: 8px; max-width: 36ch; color: var(--ink-2); }
+
+.spec-scroll { overflow-x: auto; margin-top: 24px; }
+.spec { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.spec th, .spec td { padding: 10px 12px 10px 0; text-align: left; border-top: 1px solid var(--line-2); }
+.spec thead th { font-weight: 500; color: var(--ink-3); font-size: 13.5px; border-top: 0; }
+.spec td:first-child { color: var(--accent); font-weight: 500; width: 2em; }
+.spec td:last-child { font-weight: 600; }
+
+.readout--inline { margin-top: 28px; display: inline-flex; }
+
+/* ---------- Next project ---------- */
+
+.case-next { padding-top: var(--section); }
+.case-next__link {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); align-items: end;
+  padding-top: 18px; border-top: 1px solid var(--ink); text-decoration: none;
+}
+.case-next__label { grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-3); }
+.case-next__label span:first-child { color: var(--accent); font-weight: 500; }
+.case-next__title {
+  grid-column: 1 / span 7; margin-top: clamp(24px, 4vw, 56px);
+  font: 400 clamp(64px, 12vw, 200px)/0.86 var(--serif); letter-spacing: -0.045em;
+  transition: transform 600ms var(--ease-out);
+}
+.case-next__title em { font-style: italic; }
+.case-next__media { grid-column: 9 / span 4; aspect-ratio: 4 / 5; }
+.case-next__link:hover .case-next__title { transform: translateX(16px); font-style: italic; }
+.case-next__link:hover .case-next__media img { transform: scale(1.04); }
+.case-all { display: inline-flex; margin-top: 32px; }
+
+/* ---------- Curtain reveal for case images ---------- */
+
+.js .case-media .frame, .js .case-cover .frame, .js .case-next__media { clip-path: inset(100% 0 0 0 round 12px); transition: clip-path 1100ms cubic-bezier(0.7, 0, 0.2, 1); }
+.js .case-media .frame img, .js .case-cover .frame img { transform: scale(1.1); transition: transform 1400ms var(--ease-out); }
+.js .is-in .frame, .js .is-in.frame, .js .case-next.is-in .case-next__media { clip-path: inset(0 0 0 0 round 12px); }
+.js .is-in .frame img, .js .is-in.frame img { transform: none; }
+.js .case-title { filter: blur(12px); opacity: 0; transform: translateY(18px); transition: filter 1000ms var(--ease-out), opacity 900ms var(--ease-out), transform 1000ms var(--ease-out); }
+html.is-on .case-title { filter: none; opacity: 1; transform: none; }
+
+/* Smooth cross-page transitions where the browser supports them (Chrome, Safari); the project title glides between pages. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 420ms; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+  .case-intro, .case-body { grid-template-columns: 1fr; }
+  .case-intro .lede, .case-facts { grid-column: 1; }
+  .case-toc { display: none; }
+  .case-chapters { grid-column: 1; }
+  .case-next__title, .case-next__media { grid-column: 1 / -1; }
+  .case-next__media { max-width: 360px; margin-top: 28px; }
+}
+@media (max-width: 600px) {
+  .case-grid, .case-grid--3 { grid-template-columns: 1fr; }
+  .case-cover .frame { aspect-ratio: 4 / 3; }
+  .case-facts div { grid-template-columns: 5.5em 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .js .case-media .frame, .js .case-cover .frame, .js .case-next__media { clip-path: none; transition: none; }
+  .js .case-media .frame img, .js .case-cover .frame img { transform: none; transition: none; }
+  .js .case-title { filter: none; transform: none; transition: opacity 300ms; }
+  .case-next__title { transition: none; }
+}
+
+/* ---------- Privacy ---------- */
+
+.legal__title { font-size: clamp(56px, 9vw, 144px); }
+.legal .case-line { max-width: 36ch; font-style: normal; }
+.legal__body { max-width: 40em; margin-top: clamp(48px, 6vw, 88px); padding-bottom: var(--section); color: var(--ink-2); }
+.legal__body h2 { margin: 44px 0 12px; font: 400 var(--t-h3)/1.1 var(--serif); letter-spacing: -0.012em; color: var(--ink); }
+.legal__body h2:first-child { margin-top: 0; }
+.legal__body p + p, .legal__body ul + p { margin-top: 1em; }
+.legal__body ul { margin-top: 12px; }
+.legal__body li { position: relative; padding: 10px 0 10px 22px; border-top: 1px solid var(--line); }
+.legal__body li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.legal__body a { color: var(--ink); }

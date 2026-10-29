@@ -1,135 +1,117 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fresha — Murat Kurul</title>
-<meta name="description" content="Fresha: a handheld scanner that reads spoilage gases and bacteria to show in seconds whether food is still safe to eat, with a companion app that turns every meal saved into CO₂ saved.">
-<meta name="theme-color" content="#1F3A29">
+<meta name="description" content="Fresha, a handheld food-safety scanner and companion app that turns every meal saved into CO₂ saved.">
+<meta name="theme-color" content="#E8EEE1">
 <link rel="canonical" href="https://muratkurul.com/fresha/">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Fresha — Murat Kurul">
-<meta property="og:description" content="Eat confidently. Waste less. A food-safety scanner and its app.">
-<meta property="og:image" content="https://muratkurul.com/assets/fresha-device.jpg">
+<meta property="og:description" content="Eat confidently. Waste less. A food-safety scanner and app.">
+<meta property="og:image" content="https://muratkurul.com/assets/fresha-hero.jpg">
+<meta property="og:url" content="https://muratkurul.com/fresha/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=Instrument+Serif&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="../site.css">
-<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="../home.css">
+<link rel="stylesheet" href="../case.css">
+<script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
-<body class="theme-fresha">
-<a class="skip-link" href="#main">Skip to content</a>
+<body class="case" style="--bg:#E8EEE1">
+<a class="skip-link" id="top" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span data-progress></span></div>
+<div class="edge-blur is-on" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
 
-<header class="site-header">
-  <a class="site-header__name" href="../">Murat Kurul</a>
-  <nav class="site-nav" aria-label="Main">
-    <a href="../#work">Work</a>
+<header class="header is-solid">
+  <a class="wordmark" href="../">Murat Kurul</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../#work" aria-current="true">Work</a>
+    <a href="../#next">Next</a>
     <a href="../#about">About</a>
     <a href="../#contact">Contact</a>
   </nav>
+  <a class="chip header__status" href="../#contact">Open to design roles</a>
 </header>
 
 <main id="main">
 
-  <section class="cs-hero">
-    <div class="cs-hero__intro">
-      <span class="label">Project 02 · Product &amp; app · Group project</span>
-      <h1 class="display display--xl">Fresha</h1>
-      <p class="lede">A handheld scanner that reads spoilage gases and bacteria to show, in seconds, whether food is still safe to eat. A companion app turns every meal saved into CO₂ saved, so cutting waste feels rewarding rather than a chore.</p>
-      <p class="heading">Eat confidently. Waste less.</p>
-      <dl class="cs-meta">
-        <div><dt class="label">Duration</dt><dd>6 weeks</dd></div>
-        <div><dt class="label">Year</dt><dd>2026</dd></div>
-        <div><dt class="label">Type</dt><dd>Product &amp; UX design</dd></div>
-        <div><dt class="label">Team</dt><dd>Group project, up to 4</dd></div>
-      </dl>
-    </div>
-    <figure class="cs-hero__media figure">
-      <img src="../assets/sm/fresha-device.jpg" srcset="../assets/sm/fresha-device.jpg 735w, ../assets/fresha-device.jpg 1220w" sizes="(min-width: 900px) 52vw, 100vw" width="1220" height="1328" alt="Fresha scanner in sage green, its screen showing a 97% safe reading" fetchpriority="high" decoding="async">
-    </figure>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">Problem &amp; story</span>
-      <h2 class="display display--md">Is it still safe to eat?</h2>
-      <p class="body-copy">People throw food away because they can’t tell whether it has gone off, not because it has. Use-by dates are cautious and the sniff test is guesswork. Fresha swaps the guessing for a clear reading, and shows what binning it would have cost the planet.</p>
-      <dl class="stats">
-        <div><dt>⅓</dt><dd>of all food produced globally is lost or wasted</dd></div>
-        <div><dt>9.5Mt</dt><dd>of food wasted in the UK every year</dd></div>
-        <div><dt>£14bn</dt><dd>yearly value of food thrown away by UK households</dd></div>
-      </dl>
-      <p class="note">Sources: FAO (global food loss and waste); WRAP (UK food waste estimates).</p>
-    </div>
-    <figure class="figure" data-reveal-media>
-      <img src="../assets/sm/fresha-storyboard.jpg" srcset="../assets/sm/fresha-storyboard.jpg 800w, ../assets/fresha-storyboard.jpg 918w" sizes="(min-width: 900px) 55vw, 100vw" width="918" height="747" alt="Storyboard: unsure about leftovers in the fridge, scanning the bowl with Fresha, then eating it" loading="lazy" decoding="async" class="paper-bone">
-      <figcaption>Unsure: leftovers in the fridge, and the smell test isn’t convincing. Scan: point Fresha at the food for an instant reading. Eat: green means safe, with points for every meal saved.</figcaption>
-    </figure>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">Interface</span>
-      <h2 class="display display--md">Three readings, one app.</h2>
-      <p class="body-copy">The device screen answers with colour first, numbers second. The app adds the why: what binning it would cost.</p>
-      <div class="readout fresha-readout" data-readout role="img" aria-label="Fresha readings: 97% safe to eat, 48% use your judgement, 14% highly likely contaminated">
-        <div class="readout__dial" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><circle class="readout__track" cx="50" cy="50" r="42" fill="none" stroke-width="7" pathLength="100"/><circle class="readout__arc" cx="50" cy="50" r="42" fill="none" stroke-width="7" stroke-linecap="round" pathLength="100"/></svg>
-          <span class="readout__value">97%</span>
-        </div>
-        <span class="readout__caption" aria-hidden="true">Safe to eat · points earned</span>
+  <section class="case-hero" aria-labelledby="case-title">
+    <div class="wrap">
+      <p class="case-back"><a class="link" href="../#fresha"><span aria-hidden="true">←</span> All work</a></p>
+      <p class="ledger"><span class="ledger__no num">02 / 06</span><span class="ledger__name">Fresha</span><span class="ledger__kind">Group project, team of up to four · Product and app · 6 weeks</span><span class="ledger__year num">2026</span></p>
+      <h1 class="case-title" id="case-title" style="view-transition-name: title-fresha">Fresha</h1>
+      <p class="case-line">Eat confidently. Waste less.</p>
+      <div class="case-intro">
+        <p class="lede">A handheld scanner that reads spoilage gases and bacteria to show, in seconds, whether food is still safe to eat. A companion app turns every meal saved into CO₂ saved, so cutting waste feels rewarding rather than a chore.</p>
+        <dl class="case-facts"><div><dt class="is-role">My role</dt><dd>Storyboarded the journey, modelled the scanner in 3D, built the prototype, and designed three app screens, including the Result screen</dd></div><div><dt>Team</dt><dd>Group project, up to four</dd></div><div><dt>Duration</dt><dd>6 weeks</dd></div><div><dt>Type</dt><dd>Product and UX design</dd></div></dl>
       </div>
     </div>
-    <div class="stack">
-      <figure class="figure" data-reveal-media>
-        <img src="../assets/fresha-readouts.jpg" width="800" height="461" alt="Three Fresha screens: 48% can’t guarantee it, 97% safe to eat, 14% highly likely contaminated" loading="lazy" decoding="async">
-      </figure>
-      <dl class="callouts">
-        <div><dt>48%</dt><dd>Can’t guarantee it. Use your judgement.</dd></div>
-        <div><dt>97%</dt><dd>Safe to eat. Points earned.</dd></div>
-        <div><dt>14%</dt><dd>Highly likely contaminated.</dd></div>
-      </dl>
-    </div>
+    <figure class="case-cover wrap" data-curtain><span class="frame frame--contain is-cutout"><img src="../assets/sm/fresha-hero.webp" srcset="../assets/sm/fresha-hero.webp 800w, ../assets/fresha-hero.webp 1264w" sizes="92vw" width="1264" height="1112" alt="Two Fresha scanners in sage green, one reading 97% safe and one 14% highly likely contaminated" fetchpriority="high" decoding="async"></span></figure>
   </section>
 
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">Companion app</span>
-      <h2 class="heading">Every meal saved becomes CO₂ saved.</h2>
-      <dl class="callouts">
-        <div><dt>Home</dt><dd>One action: scan.</dd></div>
-        <div><dt>Result</dt><dd>Score plus that item’s CO₂ impact.</dd></div>
-        <div><dt>Rewards</dt><dd>CO₂ saved unlocks food or a tree.</dd></div>
-      </dl>
+  <div class="wrap case-body">
+    <nav class="case-toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#problem"><span>01</span><span>Problem and story</span></a></li><li><a href="#interface"><span>02</span><span>Interface</span></a></li><li><a href="#app"><span>03</span><span>Companion app</span></a></li><li><a href="#form"><span>04</span><span>Sketch to form</span></a></li></ol></nav>
+    <div class="case-chapters">
+      <section class="case-chapter" id="problem" aria-labelledby="problem-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">01</span><span class="ledger__name">Problem and story</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="problem-title">Is it still safe to eat?</h2>
+          <div class="case-text"><p class="body">People throw food away because they can’t tell whether it has gone off, not because it has. Use-by dates are cautious and the sniff test is guesswork. Fresha swaps the guessing for a clear reading, and shows what binning it would have cost the planet.</p><dl class="stats"><div><dt>⅓</dt><dd>of all food produced globally is lost or wasted</dd></div><div><dt class="num">9.5Mt</dt><dd>of food wasted in the UK every year</dd></div><div><dt class="num">£14bn</dt><dd>yearly value of food thrown away by UK households</dd></div></dl><p class="note">Sources: FAO (global food loss and waste); WRAP (UK food waste estimates).</p></div>
+        </div>
+        <figure class="case-media " data-curtain><span class="frame is-paper"><img src="../assets/sm/fresha-storyboard.jpg" srcset="../assets/sm/fresha-storyboard.jpg 800w, ../assets/fresha-storyboard.jpg 918w" sizes="(min-width: 960px) 70vw, 92vw" width="918" height="747" alt="Storyboard: unsure about leftovers in the fridge, scanning the bowl with Fresha, then eating it" loading="lazy" decoding="async"></span><figcaption>Unsure: leftovers in the fridge, and the smell test isn’t convincing. Scan: point Fresha at the food for an instant reading. Eat: green means safe, with points for every meal saved.</figcaption></figure>
+      </section>
+      <section class="case-chapter" id="interface" aria-labelledby="interface-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">02</span><span class="ledger__name">Interface</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="interface-title">Three readings, one app.</h2>
+          <div class="case-text"><p class="body">The device screen answers with colour first, numbers second. The app adds the why: what binning it would cost.</p><div class="readout readout--inline" data-readout role="img" aria-label="Fresha readings: 97% safe to eat, 48% use your judgement, 14% highly likely contaminated"><span class="readout__dial" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="readout__track" cx="50" cy="50" r="42" fill="none" stroke-width="8" pathLength="100"/><circle class="readout__arc" cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke-linecap="round" pathLength="100"/></svg><span class="readout__value">97%</span></span><span class="readout__caption" aria-hidden="true">Safe to eat · points earned</span></div></div>
+        </div>
+        <figure class="case-media " data-curtain><span class="frame "><img src="../assets/fresha-readouts.jpg" sizes="(min-width: 960px) 70vw, 92vw" width="800" height="461" alt="Three Fresha screens: 48% can’t guarantee it, 97% safe to eat, 14% highly likely contaminated" loading="lazy" decoding="async"></span></figure><div data-reveal><dl class="callouts"><div><dt>48%</dt><dd>Can’t guarantee it. Use your judgement.</dd></div><div><dt>97%</dt><dd>Safe to eat. Points earned.</dd></div><div><dt>14%</dt><dd>Highly likely contaminated.</dd></div></dl></div>
+      </section>
+      <section class="case-chapter" id="app" aria-labelledby="app-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">03</span><span class="ledger__name">Companion app</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="app-title">Every meal saved becomes CO₂ saved.</h2>
+          <div class="case-text"><dl class="callouts"><div><dt>Home</dt><dd>One action: scan.</dd></div><div><dt>Result</dt><dd>Score plus that item’s CO₂ impact.</dd></div><div><dt>Rewards</dt><dd>CO₂ saved unlocks food or a tree.</dd></div></dl></div>
+        </div>
+        <figure class="case-media " data-curtain><span class="frame is-cutout"><img src="../assets/sm/fresha-app.webp" srcset="../assets/sm/fresha-app.webp 800w, ../assets/fresha-app.webp 1501w" sizes="(min-width: 960px) 70vw, 92vw" width="1501" height="1356" alt="Fresha app screens: green home screen, a 97% result with its CO₂ impact, and the rewards list" loading="lazy" decoding="async"></span></figure>
+      </section>
+      <section class="case-chapter" id="form" aria-labelledby="form-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">04</span><span class="ledger__name">Sketch to form</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="form-title">One hand, one glance.</h2>
+          <div class="case-text"><p class="body">A one-handed body with a fold-out stand, a clear READY state, and a sensor head that sits close to the food without touching it. The result reads at a glance, so the decision takes a second, not a sniff test.</p></div>
+        </div>
+        <figure class="case-media" data-curtain><div class="case-grid"><span class="frame is-paper"><img src="../assets/sm/p11_1.jpg" srcset="../assets/sm/p11_1.jpg 800w, ../assets/p11_1.jpg 900w" sizes="(min-width: 960px) 35vw, 92vw" width="900" height="889" alt="Fresha concept sketches" loading="lazy" decoding="async"></span><span class="frame is-cutout"><img src="../assets/sm/fresha-device-2.webp" srcset="../assets/sm/fresha-device-2.webp 575w, ../assets/fresha-device-2.webp 720w" sizes="(min-width: 960px) 35vw, 92vw" width="720" height="1001" alt="Fresha render showing a 14% contaminated reading on its side screen" loading="lazy" decoding="async"></span></div></figure>
+      </section>
     </div>
-    <figure class="figure" data-reveal-media>
-      <img src="../assets/sm/fresha-app.jpg" srcset="../assets/sm/fresha-app.jpg 800w, ../assets/fresha-app.jpg 1501w" sizes="(min-width: 900px) 55vw, 100vw" width="1501" height="1356" alt="Fresha app screens: green home screen, a 97% result with its CO₂ impact, and the rewards list" loading="lazy" decoding="async" class="paper-bone">
-    </figure>
+  </div>
+
+  <section class="case-next wrap" data-curtain aria-label="Next project">
+    <a class="case-next__link" href="../liman/">
+      <span class="case-next__label"><span>Next project</span><span class="num">03 / 06</span></span>
+      <span class="case-next__title" style="view-transition-name: title-liman">Liman</span>
+      <span class="frame case-next__media"><img src="../assets/card/liman-look-street.jpg" alt="" loading="lazy" decoding="async"></span>
+    </a>
+    <a class="link case-all" href="../#work"><span aria-hidden="true">←</span> All work</a>
   </section>
 
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">Sketch to form</span>
-      <h2 class="heading">One hand, one glance.</h2>
-      <p class="body-copy">A one-handed body with a fold-out stand, a clear READY state, and a sensor head that sits close to the food without touching it. The result reads at a glance, so the decision takes a second, not a sniff test.</p>
+  <section class="contact" aria-label="Contact">
+    <div class="wrap">
+      <footer class="footer">
+        <span>© 2026 Murat Kurul · <a href="mailto:mmuratkurul@gmail.com">mmuratkurul@gmail.com</a></span>
+        <span>Richmond, London · <time data-clock>--:--</time> · <a href="../privacy/">Privacy</a> · <a href="#top">Back to top ↑</a></span>
+      </footer>
     </div>
-    <div class="gallery" data-reveal-media>
-      <img src="../assets/sm/p11_1.jpg" srcset="../assets/sm/p11_1.jpg 800w, ../assets/p11_1.jpg 900w" sizes="(min-width: 900px) 28vw, 50vw" width="900" height="889" alt="Fresha concept sketches" loading="lazy" decoding="async">
-      <img src="../assets/sm/fresha-device-2.jpg" srcset="../assets/sm/fresha-device-2.jpg 575w, ../assets/fresha-device-2.jpg 720w" sizes="(min-width: 900px) 28vw, 50vw" width="720" height="1001" alt="Fresha render showing a 14% contaminated reading on its side screen" loading="lazy" decoding="async">
-    </div>
+    <p class="signature" aria-hidden="true"><span data-fit>Murat Kurul</span></p>
   </section>
 
-  <nav class="next" aria-label="More projects">
-    <a class="line-link" href="../#work">← All work</a>
-    <a class="next__project" href="../liman/">Liman →</a>
-  </nav>
-
-  <footer class="site-footer label wrap">
-    <span>© 2026 Murat Kurul</span>
-    <span class="site-footer__links"><a href="mailto:mmuratkurul@gmail.com">mmuratkurul@gmail.com</a><a href="../privacy/">Privacy</a></span>
-  </footer>
 </main>
-<script src="../site.js" defer></script>
+<script src="../case.js" defer></script>
 </body>
 </html>

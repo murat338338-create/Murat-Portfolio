@@ -1,111 +1,109 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Postura — Murat Kurul</title>
-<meta name="description" content="Postura: an Arduino-programmed wristband that learns good and poor posture from motion data and vibrates to nudge you upright.">
-<meta name="theme-color" content="#DDE1E7">
+<meta name="description" content="Postura, an Arduino wristband that learns good and poor posture from motion data and vibrates to nudge you upright.">
+<meta name="theme-color" content="#E6ECF2">
 <link rel="canonical" href="https://muratkurul.com/postura/">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Postura — Murat Kurul">
-<meta property="og:description" content="A wristband that learns your slouch and nudges you upright.">
+<meta property="og:description" content="A wristband that notices the slouch before you do.">
 <meta property="og:image" content="https://muratkurul.com/assets/postura-bands.jpg">
+<meta property="og:url" content="https://muratkurul.com/postura/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=Instrument+Serif&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="../site.css">
-<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="../home.css">
+<link rel="stylesheet" href="../case.css">
+<script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
-<body class="theme-postura">
-<a class="skip-link" href="#main">Skip to content</a>
+<body class="case" style="--bg:#E6ECF2">
+<a class="skip-link" id="top" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span data-progress></span></div>
+<div class="edge-blur is-on" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
 
-<header class="site-header">
-  <a class="site-header__name" href="../">Murat Kurul</a>
-  <nav class="site-nav" aria-label="Main">
-    <a href="../#work">Work</a>
+<header class="header is-solid">
+  <a class="wordmark" href="../">Murat Kurul</a>
+  <nav class="nav" aria-label="Main">
+    <a href="../#work" aria-current="true">Work</a>
+    <a href="../#next">Next</a>
     <a href="../#about">About</a>
     <a href="../#contact">Contact</a>
   </nav>
+  <a class="chip header__status" href="../#contact">Open to design roles</a>
 </header>
 
 <main id="main">
 
-  <section class="cs-hero">
-    <div class="cs-hero__intro">
-      <span class="label postura-eyebrow">Project 04 · Wearable tech</span>
-      <h1 class="display display--xl">Postura</h1>
-      <p class="lede">An Arduino-programmed wristband that learns the difference between good and poor posture from motion data, then vibrates to nudge you upright before the slouch becomes a habit.</p>
-      <dl class="cs-meta">
-        <div><dt class="label">Duration</dt><dd>4 weeks</dd></div>
-        <div><dt class="label">Year</dt><dd>2024</dd></div>
-        <div><dt class="label">Type</dt><dd>Wearable tech &amp; product design</dd></div>
-        <div><dt class="label">Tools</dt><dd>SolidWorks, KeyShot, Procreate, Arduino, Edge Impulse</dd></div>
-      </dl>
-    </div>
-    <figure class="cs-hero__media figure">
-      <img src="../assets/sm/postura-bands.jpg" srcset="../assets/sm/postura-bands.jpg 800w, ../assets/postura-bands.jpg 1217w" sizes="(min-width: 900px) 52vw, 100vw" width="1217" height="1165" alt="Postura bands in a colour range: blue, purple, lime, grey, orange and red" fetchpriority="high" decoding="async">
-      <figcaption>Colour range tested across the bands.</figcaption>
-    </figure>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">How it works</span>
-      <h2 class="display display--md">It learns your slouch.</h2>
-      <dl class="callouts">
-        <div><dt>01 · Collect</dt><dd>Motion data from the accelerometer, gyroscope and magnetometer, labelled good or bad posture.</dd></div>
-        <div><dt>02 · Train</dt><dd>A classifier built in Edge Impulse and run on the Arduino itself.</dd></div>
-        <div><dt>03 · Nudge</dt><dd>When it detects a slouch, the band vibrates. No app needed.</dd></div>
-      </dl>
-    </div>
-    <figure class="figure" data-reveal-media>
-      <img src="../assets/sm/postura-edge.jpg" srcset="../assets/sm/postura-edge.jpg 800w, ../assets/postura-edge.jpg 1125w" sizes="(min-width: 900px) 55vw, 100vw" width="1125" height="873" alt="Edge Impulse project showing labelled posture data and the trained classifier" loading="lazy" decoding="async">
-      <figcaption>Training the classifier in Edge Impulse.</figcaption>
-    </figure>
-  </section>
-
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">Storyboard</span>
-      <h2 class="heading">Slouch, buzz, sit back up.</h2>
-      <p class="body-copy">The user slowly slouches while working. Postura buzzes on the wrist, and they sit back up before the posture settles into a habit.</p>
-    </div>
-    <div class="stack">
-      <figure class="figure" data-reveal-media>
-        <img src="../assets/sm/postura-storyboard.jpg" srcset="../assets/sm/postura-storyboard.jpg 800w, ../assets/postura-storyboard.jpg 1070w" sizes="(min-width: 900px) 55vw, 100vw" width="1070" height="402" alt="Four-panel storyboard of a desk worker slouching, the band buzzing, and the worker sitting upright" loading="lazy" decoding="async" class="paper">
-      </figure>
-      <div class="gallery" data-reveal-media>
-        <img src="../assets/p14_3.jpg" width="575" height="423" alt="Line drawing of the band vibrating on the wrist" loading="lazy" decoding="async" class="paper">
-        <img src="../assets/sm/postura-desk.jpg" srcset="../assets/sm/postura-desk.jpg 640w, ../assets/postura-desk.jpg 1000w" sizes="(min-width: 900px) 28vw, 50vw" width="1000" height="1250" alt="A man sitting upright at a laptop wearing a blue Postura band" loading="lazy" decoding="async">
+  <section class="case-hero" aria-labelledby="case-title">
+    <div class="wrap">
+      <p class="case-back"><a class="link" href="../#postura"><span aria-hidden="true">←</span> All work</a></p>
+      <p class="ledger"><span class="ledger__no num">04 / 06</span><span class="ledger__name">Postura</span><span class="ledger__kind">Interactive prototype · Wearable tech · 4 weeks</span><span class="ledger__year num">2024</span></p>
+      <h1 class="case-title" id="case-title" style="view-transition-name: title-postura">Postura</h1>
+      <p class="case-line">A wristband that notices the slouch before you do.</p>
+      <div class="case-intro">
+        <p class="lede">An Arduino-programmed wristband that learns the difference between good and poor posture from motion data, then vibrates to nudge you upright before the slouch becomes a habit.</p>
+        <dl class="case-facts"><div><dt class="is-role">My role</dt><dd>Built the Arduino wearable, trained the classifier, product design</dd></div><div><dt>Duration</dt><dd>4 weeks</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>Tools</dt><dd>SolidWorks, KeyShot, Procreate, Arduino, Edge Impulse</dd></div></dl>
       </div>
-      <p class="note">Photo: AI-generated visualisation (Higgsfield).</p>
     </div>
+    <figure class="case-cover wrap" data-curtain><span class="frame "><img src="../assets/sm/postura-bands.jpg" srcset="../assets/sm/postura-bands.jpg 800w, ../assets/postura-bands.jpg 1217w" sizes="92vw" width="1217" height="1165" alt="Postura bands in a colour range: blue, purple, lime, grey, orange and red" fetchpriority="high" decoding="async"></span><figcaption>Colour range tested across the bands.</figcaption></figure>
   </section>
 
-  <section class="cs-section">
-    <div class="cs-section__text" data-reveal>
-      <span class="label">In use</span>
-      <h2 class="heading">Small enough to forget it’s there.</h2>
-      <p class="body-copy">A slim band with a single module, worn all day at the desk. It only speaks up when your posture drops.</p>
+  <div class="wrap case-body">
+    <nav class="case-toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#how"><span>01</span><span>How it works</span></a></li><li><a href="#storyboard"><span>02</span><span>Storyboard</span></a></li><li><a href="#use"><span>03</span><span>In use</span></a></li></ol></nav>
+    <div class="case-chapters">
+      <section class="case-chapter" id="how" aria-labelledby="how-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">01</span><span class="ledger__name">How it works</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="how-title">It learns your slouch.</h2>
+          <div class="case-text"><dl class="callouts"><div><dt>01 · Collect</dt><dd>Motion data from the accelerometer, gyroscope and magnetometer, labelled good or bad posture.</dd></div><div><dt>02 · Train</dt><dd>A classifier built in Edge Impulse and run on the Arduino itself.</dd></div><div><dt>03 · Nudge</dt><dd>When it detects a slouch, the band vibrates. No app needed.</dd></div></dl></div>
+        </div>
+        <figure class="case-media " data-curtain><span class="frame "><img src="../assets/sm/postura-edge.jpg" srcset="../assets/sm/postura-edge.jpg 800w, ../assets/postura-edge.jpg 1125w" sizes="(min-width: 960px) 70vw, 92vw" width="1125" height="873" alt="Edge Impulse project showing labelled posture data and the trained classifier" loading="lazy" decoding="async"></span><figcaption>Training the classifier in Edge Impulse.</figcaption></figure>
+      </section>
+      <section class="case-chapter" id="storyboard" aria-labelledby="storyboard-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">02</span><span class="ledger__name">Storyboard</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="storyboard-title">Slouch, buzz, sit back up.</h2>
+          <div class="case-text"><p class="body">The user slowly slouches while working. Postura buzzes on the wrist, and they sit back up before the posture settles into a habit.</p></div>
+        </div>
+        <figure class="case-media " data-curtain><span class="frame is-paper"><img src="../assets/sm/postura-storyboard.jpg" srcset="../assets/sm/postura-storyboard.jpg 800w, ../assets/postura-storyboard.jpg 1070w" sizes="(min-width: 960px) 70vw, 92vw" width="1070" height="402" alt="Four-panel storyboard of a desk worker slouching, the band buzzing, and the worker sitting upright" loading="lazy" decoding="async"></span></figure><figure class="case-media" data-curtain><div class="case-grid"><span class="frame is-paper"><img src="../assets/p14_3.jpg" sizes="(min-width: 960px) 35vw, 92vw" width="575" height="423" alt="Line drawing of the band vibrating on the wrist" loading="lazy" decoding="async"></span><span class="frame "><img src="../assets/sm/postura-desk.jpg" srcset="../assets/sm/postura-desk.jpg 640w, ../assets/postura-desk.jpg 1000w" sizes="(min-width: 960px) 35vw, 92vw" width="1000" height="1250" alt="A man sitting upright at a laptop wearing a blue Postura band" loading="lazy" decoding="async"></span></div><figcaption>Photo: AI-generated visualisation (Higgsfield).</figcaption></figure>
+      </section>
+      <section class="case-chapter" id="use" aria-labelledby="use-title">
+        <div data-reveal>
+          <p class="ledger ledger--compact"><span class="ledger__no num">03</span><span class="ledger__name">In use</span><span class="ledger__year"></span></p>
+          <h2 class="case-h2" id="use-title">Small enough to forget it’s there.</h2>
+          <div class="case-text"><p class="body">A slim band with a single module, worn all day at the desk. It only speaks up when your posture drops.</p></div>
+        </div>
+        <figure class="case-media is-narrow" data-curtain><span class="frame "><img src="../assets/sm/postura-wrist.jpg" srcset="../assets/sm/postura-wrist.jpg 640w, ../assets/postura-wrist.jpg 1000w" sizes="(min-width: 960px) 40vw, 92vw" width="1000" height="1250" alt="A blue Postura band on a wrist resting on a laptop beside a coffee cup" loading="lazy" decoding="async"></span><figcaption>Lifestyle image: AI-generated visualisation (Higgsfield).</figcaption></figure>
+      </section>
     </div>
-    <figure class="figure postura-wrist" data-reveal-media>
-      <img src="../assets/sm/postura-wrist.jpg" srcset="../assets/sm/postura-wrist.jpg 640w, ../assets/postura-wrist.jpg 1000w" sizes="(min-width: 900px) 40vw, 100vw" width="1000" height="1250" alt="A blue Postura band on a wrist resting on a laptop beside a coffee cup" loading="lazy" decoding="async">
-      <figcaption>Lifestyle image: AI-generated visualisation (Higgsfield).</figcaption>
-    </figure>
+  </div>
+
+  <section class="case-next wrap" data-curtain aria-label="Next project">
+    <a class="case-next__link" href="../night-court/">
+      <span class="case-next__label"><span>Next project</span><span class="num">05 / 06</span></span>
+      <span class="case-next__title" style="view-transition-name: title-nc">Night Court</span>
+      <span class="frame case-next__media"><img src="../assets/card/nc-tokyo.jpg" alt="" loading="lazy" decoding="async"></span>
+    </a>
+    <a class="link case-all" href="../#work"><span aria-hidden="true">←</span> All work</a>
   </section>
 
-  <nav class="next" aria-label="More projects">
-    <a class="line-link" href="../#work">← All work</a>
-    <a class="next__project" href="../night-court/">Night Court →</a>
-  </nav>
+  <section class="contact" aria-label="Contact">
+    <div class="wrap">
+      <footer class="footer">
+        <span>© 2026 Murat Kurul · <a href="mailto:mmuratkurul@gmail.com">mmuratkurul@gmail.com</a></span>
+        <span>Richmond, London · <time data-clock>--:--</time> · <a href="../privacy/">Privacy</a> · <a href="#top">Back to top ↑</a></span>
+      </footer>
+    </div>
+    <p class="signature" aria-hidden="true"><span data-fit>Murat Kurul</span></p>
+  </section>
 
-  <footer class="site-footer label wrap">
-    <span>© 2026 Murat Kurul</span>
-    <span class="site-footer__links"><a href="mailto:mmuratkurul@gmail.com">mmuratkurul@gmail.com</a><a href="../privacy/">Privacy</a></span>
-  </footer>
 </main>
-<script src="../site.js" defer></script>
+<script src="../case.js" defer></script>
 </body>
 </html>

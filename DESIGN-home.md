@@ -92,9 +92,19 @@ Taken from the shovel.studio reference (frosted pills over photos, blur crossfad
 
 Frosted surfaces use one recipe: 16px blur, 72% paper fill, inset highlight. Under `prefers-reduced-transparency` they turn solid and the edge blur becomes a plain paper fade.
 
+## Case studies
+
+Each project page (aero/, fresha/, liman/, postura/, night-court/) and the privacy page load home.css then case.css and case.js. The page is washed in its project's tone (the same tints as the home page). Structure follows the case-study skill (owl-listener/designer-skills): an "All work" link, a ledger with the project number, type and year, the title at hero size, a one-line pitch, the intro, and a facts panel whose first row is My role. Then a full-width cover, numbered chapters with a sticky "On this page" index that tracks the section in view, a large Next project panel, and the signature footer. A hairline at the top of the window shows reading progress.
+
+Where the browser supports cross-document view transitions, navigating between pages cross-fades and each project title (view-transition-name: title-<project>) glides from the home page into its case study. Reduced motion turns this off.
+
+Only facts from the CV and portfolio PDF appear in the facts panels and copy. AI-generated images keep their captions.
+
 ## Materials
 
 The header becomes a translucent paper material (blur + saturate, bright top edge) once the hero scrolls away; under `prefers-reduced-transparency` it turns solid. A fixed grain overlay at very low opacity keeps the paper from reading flat.
+
+Images never sit in a box of a different colour from the page. Product renders and device mockups (Fresha scanner, app and side render, Night Court jacket, both Digital mockups) are transparent WebP cut-outs (`.frame.is-cutout`) that float on the page tint with a soft ink-tinted drop shadow; the image is padded inside its frame so the reveal curtain never clips the shadow into a visible edge. Paper scans and line drawings (`.is-paper`, `.pan`) multiply into a frame filled with the page's own `--bg`. An inset laid over a photo (`.is-tint`) takes the page tint too. Photographs keep their own frame.
 
 ## Honesty rules
 
