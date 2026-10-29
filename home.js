@@ -186,6 +186,34 @@
     // Portrait screens (tablets) have room for a wider arch than landscape laptops.
     G.arcR = Math.min(narrow ? W * 0.84 : W * (W < H ? 0.47 : 0.4), G.horizon - H * (narrow ? 0.36 : 0.31));
     G.arcW = (TAU * G.arcR / N) * (narrow ? 0.92 : 0.82);
+    // Whatever the screen shape, keep the arch clear of the title and the view buttons:
+    // shrink it until no card, wherever it travels round the arch, would touch them.
+    var heroBox = hero.getBoundingClientRect();
+    var keepClear = [document.querySelector(".hero__intro")];
+    if (!narrow) keepClear.push(document.querySelector(".hero__controls"));
+    var rects = keepClear.map(function (el) {
+      var r = el.getBoundingClientRect();
+      return { l: r.left - heroBox.left - 12, t: r.top - heroBox.top - 12, r: r.right - heroBox.left + 12, b: r.bottom - heroBox.top + 12 };
+    });
+    function touches(R, w) {
+      var rad = w * 0.8; // half the diagonal of a 4:5 card
+      for (var deg = -100; deg <= 100; deg += 3) {
+        var th = deg * Math.PI / 180;
+        var cx = W / 2 + R * Math.sin(th), cy = G.horizon - R * Math.cos(th);
+        if (cy > G.horizon) continue; // under the waterline the cards fade out
+        for (var i = 0; i < rects.length; i++) {
+          var q = rects[i];
+          var nx = clamp(cx, q.l, q.r), ny = clamp(cy, q.t, q.b);
+          if ((cx - nx) * (cx - nx) + (cy - ny) * (cy - ny) < rad * rad) return true;
+        }
+      }
+      return false;
+    }
+    var k = narrow ? 0.92 : 0.82;
+    while (touches(G.arcR, G.arcW) && G.arcR > W * 0.22) {
+      G.arcR *= 0.97;
+      G.arcW = (TAU * G.arcR / N) * k;
+    }
     G.panoW = narrow ? W * 0.46 : Math.min(W * 0.16, H * 0.3);
     G.panoR = N * G.panoW * 1.1 / TAU;
     G.persp = narrow ? W * 1.05 : W * 0.42;
