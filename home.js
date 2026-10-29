@@ -167,7 +167,7 @@
       a.draggable = false;
       a.innerHTML = '<img src="assets/card/' + c[1] + '.jpg" alt="" decoding="async" draggable="false">';
       ring.appendChild(a);
-      cards.push({ el: a, project: c[0], fly: new Spring(0.72, 0.62, reduce ? 1 : 0), launch: null, delay: 0, hover: 0, fade: reduce ? 1 : 0, started: false, z: null, hidden: null });
+      cards.push({ el: a, project: c[0], fly: new Spring(0.72, 0.78, reduce ? 1 : 0), launch: null, delay: 0, hover: 0, fade: reduce ? 1 : 0, started: false, z: null, hidden: null });
     });
   }
   var N = cards.length, STEP = TAU / N;
@@ -284,7 +284,7 @@
         var L = c.launch;
         bx = lerp(L.x, bx, p); by = lerp(L.y, by, p); bz = lerp(L.z, bz, p);
         bRz = lerp(L.rz, bRz, p); bRy = lerp(0, bRy, p);
-        bS = lerp(G.arcScale * 1.1, bS, p);
+        bS = lerp(L.s, bS, p);
         o = c.started ? Math.min(1, p * 4) * lerp(1, o, clamp(p, 0, 1)) : 0;
       }
 
@@ -335,16 +335,18 @@
     order.sort(function (a, b) { return a.th - b.th; });
     order.forEach(function (o, rank) {
       var side = o.th / (Math.PI / 2);
-      o.c.delay = rank * 72;
+      o.c.delay = rank * 85;
+      // Each card is thrown from close to the camera, well below the frame, so it starts big and flies back into place.
       o.c.launch = {
-        x: side * G.W * 0.14,
-        y: G.H * 0.5 + G.panoW * 0.4,
-        z: G.persp * 0.5,
-        rz: side * 28 + (rank % 2 ? 9 : -9)
+        x: side * G.W * 0.24,
+        y: G.H * 0.5 + G.panoW * 0.9,
+        z: G.persp * 0.62,
+        s: Math.min(G.arcScale * 3.4, 1.5),
+        rz: side * 38 + (rank % 2 ? 14 : -14)
       };
     });
     entranceDone = false;
-    window.setTimeout(function () { entranceDone = true; }, order.length * 72 + 900);
+    window.setTimeout(function () { entranceDone = true; }, order.length * 85 + 1100);
   }
   var sky = document.querySelector("[data-sky]");
   var skyReady = sky.decode ? sky.decode() : Promise.resolve();
