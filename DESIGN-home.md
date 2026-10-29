@@ -104,6 +104,8 @@ Only facts from the CV and portfolio PDF appear in the facts panels and copy. AI
 
 The header becomes a translucent paper material (blur + saturate, bright top edge) once the hero scrolls away; under `prefers-reduced-transparency` it turns solid. A fixed grain overlay at very low opacity keeps the paper from reading flat.
 
+Images never sit in a box of a different colour from the page. Product renders and device mockups (Fresha scanner, app and side render, Night Court jacket, both Digital mockups) are transparent WebP cut-outs (`.frame.is-cutout`) that float on the page tint with a soft ink-tinted drop shadow; the image is padded inside its frame so the reveal curtain never clips the shadow into a visible edge. Paper scans and line drawings (`.is-paper`, `.pan`) multiply into a frame filled with the page's own `--bg`. An inset laid over a photo (`.is-tint`) takes the page tint too. Photographs keep their own frame.
+
 ## Honesty rules
 
 AI-generated imagery is labelled where it appears. Concept projects in "Next" are marked as concepts in progress, never as finished work.

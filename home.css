@@ -336,6 +336,13 @@ button { font: inherit; color: inherit; }
 .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 900ms var(--ease-out); }
 a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
 .frame--contain img { object-fit: contain; padding: 6%; }
+/* Cut-out products sit straight on the page tint, grounded by a soft shadow instead of a box. */
+.frame.is-cutout { background: transparent; overflow: visible; }
+/* Padding keeps the shadow inside the frame, so the reveal curtain never clips it into a visible edge. */
+.frame.is-cutout img { object-fit: contain; padding: 3% 4% 7%; filter: drop-shadow(0 14px 16px rgba(27, 31, 44, 0.12)) drop-shadow(0 3px 4px rgba(27, 31, 44, 0.07)); }
+/* This one keeps the soft shadow from its own render. */
+.frame.is-cutout.has-shadow img { filter: none; }
+.frame.is-tint { background: var(--bg, var(--paper)); transition: background-color 700ms var(--ease-out), outline-color 700ms var(--ease-out); }
 .compose { position: relative; display: block; }
 .compose__lead { aspect-ratio: 4 / 3; }
 .compose__lead.tall { aspect-ratio: 4 / 5; }
@@ -353,9 +360,9 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
 .caption { font-size: 13.5px; color: var(--ink-3); max-width: 46ch; }
 
 /* Fresha: the whole scanner, uncropped; the readout and app sit below it, never over it. */
-.fresha__lead { display: block; aspect-ratio: 1264 / 1112; background: #FFFFFF; }
+.fresha__lead { display: block; aspect-ratio: 1264 / 1112; }
 .fresha__lead img { object-fit: contain; }
-.readout-tile { display: grid; place-items: center; aspect-ratio: 1; background: #DCE6D6; }
+.readout-tile { display: grid; place-items: center; aspect-ratio: 1; background: transparent; }
 
 /* Fresha live readout */
 .readout {

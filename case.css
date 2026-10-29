@@ -30,7 +30,7 @@ body.case { background: var(--bg, var(--paper)); }
 
 .case-cover { margin-top: clamp(56px, 7vw, 104px); }
 .case-cover .frame { aspect-ratio: 16 / 9; }
-.case-cover .frame--contain { background: #FFFFFF; }
+.case-cover .frame--contain { background: transparent; }
 .case-cover .frame--contain img { object-fit: contain; padding: 3%; }
 .case-cover figcaption, .case-media figcaption { margin-top: 12px; font-size: 13.5px; color: var(--ink-3); max-width: 70ch; }
 
@@ -65,15 +65,20 @@ body.case { background: var(--bg, var(--paper)); }
 .case-media { margin-top: clamp(32px, 4vw, 56px); }
 .case-media + .case-media { margin-top: clamp(16px, 2vw, 24px); }
 .case-media .frame img { width: 100%; height: auto; }
-.case-media .frame.is-paper { background: #FBF9F4; }
+/* Paper scans multiply into the page tint; the frame carries the same tint so the curtain's clip doesn't flatten the blend onto white. */
+.case-media .frame.is-paper { background: var(--bg, var(--paper)); }
 .case-media .frame.is-paper img { mix-blend-mode: multiply; }
+/* Cut-out products float on the tint; padding leaves room for the shadow inside the curtain's clip. */
+.frame.is-cutout { background: transparent; }
+.frame.is-cutout img { filter: drop-shadow(0 14px 16px rgba(27, 31, 44, 0.12)) drop-shadow(0 3px 4px rgba(27, 31, 44, 0.07)); }
+.case-media .frame.is-cutout img { padding: 2% 4% 7%; }
 .case-media.is-narrow { max-width: 520px; }
 .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); align-items: start; }
 .case-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .case-grid .frame img { aspect-ratio: auto; }
 
 /* Wide sheets scroll sideways on small screens instead of shrinking past legibility. */
-.pan { overflow-x: auto; border-radius: var(--r-md); background: #FBF9F4; -webkit-overflow-scrolling: touch; }
+.pan { overflow-x: auto; border-radius: var(--r-md); background: var(--bg, var(--paper)); -webkit-overflow-scrolling: touch; }
 .pan img { width: 100%; min-width: 760px; height: auto; mix-blend-mode: multiply; }
 .pan:focus-visible { outline-offset: 4px; }
 .pan-hint { display: none; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
