@@ -428,7 +428,6 @@
     dragging = true; moved = 0; snapping = false; driftV = 0;
     startX = lastX = e.clientX;
     history = [{ t: e.timeStamp, a: alpha }];
-    stage.setPointerCapture(e.pointerId);
   });
   stage.addEventListener("pointermove", function (e) {
     if (!dragging) return;
@@ -437,6 +436,8 @@
     moved += Math.abs(dx);
     // A little hysteresis before the arc commits to following the pointer.
     if (Math.abs(e.clientX - startX) < 6 && !stage.classList.contains("is-dragging")) return;
+    // Capture only once it is a drag: capturing on press would send a plain click to the stage, not the card's link.
+    if (!stage.classList.contains("is-dragging")) stage.setPointerCapture(e.pointerId);
     stage.classList.add("is-dragging");
     alpha += dx / scaleNow();
     history.push({ t: e.timeStamp, a: alpha });
@@ -455,8 +456,9 @@
     snap.x = alpha; snap.v = v; snap.target = target;
     snapping = true;
   }
-  stage.addEventListener("pointerup", release);
-  stage.addEventListener("pointercancel", release);
+  // On the window too: before a drag starts nothing is captured, so the release can land off the stage.
+  window.addEventListener("pointerup", release);
+  window.addEventListener("pointercancel", release);
   stage.addEventListener("click", function (e) { if (moved > 6) e.preventDefault(); }, true);
 
   /* ---------- Controls ---------- */
