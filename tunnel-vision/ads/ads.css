@@ -1,0 +1,46 @@
+/* Tunnel Vision HTML5 display set. One play of under ten seconds, ending on the CTA frame (IAB guidance);
+   reduced motion shows the end frame at once. Type-only lockups stand in for the brands' logos. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: transparent; }
+.ad {
+  --ink: #07090B; --bone: #F2EFE8; --cyan: #5CE1E6;
+  position: relative; overflow: hidden; display: block; color: var(--bone); background: var(--ink);
+  font-family: "Archivo", "Arial Narrow", Arial, sans-serif; text-decoration: none;
+  border: 1px solid #2A3238; isolation: isolate;
+}
+.ad:focus-visible { outline: 2px solid var(--cyan); outline-offset: -3px; }
+.ad__photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; animation: push 9s cubic-bezier(0.2, 0.7, 0.1, 1) both; }
+.ad__shade { position: absolute; inset: 0; z-index: -1; }
+@keyframes push { from { transform: scale(1.12); } to { transform: scale(1); } }
+
+.ad__strips { position: absolute; top: 0; left: 6%; right: 6%; display: flex; gap: 8%; }
+.ad__strips i { flex: 1; height: 3px; border-radius: 0 0 3px 3px; background: var(--cyan); box-shadow: 0 0 10px 1px rgba(92, 225, 230, 0.8); animation: flick 700ms steps(1) both; }
+.ad__strips i:nth-child(2) { animation-delay: 140ms } .ad__strips i:nth-child(3) { animation-delay: 260ms } .ad__strips i:nth-child(4) { animation-delay: 380ms }
+@keyframes flick { 0% { opacity: 0 } 20% { opacity: 1 } 30% { opacity: 0.1 } 45%, 100% { opacity: 1 } }
+
+.ad__display { font-weight: 900; font-stretch: 64%; text-transform: uppercase; line-height: 0.86; letter-spacing: -0.005em; }
+.ad__display em { font-style: normal; color: var(--cyan); }
+.ad__meta { font-weight: 600; font-stretch: 100%; line-height: 1.25; }
+.ad__cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--cyan); color: var(--ink); font-weight: 800; font-stretch: 100%; white-space: nowrap; }
+.ad__lockup { display: inline-flex; align-items: baseline; gap: 0.35em; font-stretch: 100%; white-space: nowrap; }
+.ad__lockup b { font-weight: 900; letter-spacing: 0.02em; }
+.ad__lockup span { color: var(--cyan); font-weight: 400; }
+.ad__lockup i { font-style: normal; font-weight: 700; text-transform: lowercase; }
+.ad__spec { position: absolute; right: 4px; bottom: 3px; font: 700 8px/1 Arial, sans-serif; letter-spacing: 0.04em; color: rgba(242, 239, 232, 0.72); text-transform: uppercase; }
+
+/* Frames: [data-f] 1 shows first, 2 replaces it, 3 is the end frame that stays. */
+[data-f] { animation: both cubic-bezier(0.2, 0.7, 0.1, 1); }
+[data-f="1"] { animation-name: f1; animation-duration: 3.2s; }
+[data-f="2"] { animation-name: f2; animation-duration: 6s; }
+[data-f="3"] { animation-name: f3; animation-duration: 6.6s; }
+@keyframes f1 { 0% { opacity: 0; transform: translateY(14px); } 12%, 84% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-10px); } }
+@keyframes f2 { 0%, 52% { opacity: 0; transform: translateY(14px); } 60%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-10px); } }
+@keyframes f3 { 0%, 90% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: none; } }
+[data-keep] { animation-name: keep; animation-duration: 6s; }
+@keyframes keep { 0%, 52% { opacity: 0; transform: translateY(12px); } 60%, 100% { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ad__photo, .ad__strips i, [data-keep] { animation: none; }
+  [data-f="1"], [data-f="2"] { animation: none; opacity: 0; }
+  [data-f="3"] { animation: none; opacity: 1; }
+}

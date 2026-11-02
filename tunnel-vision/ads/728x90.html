@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="ad.size" content="width=728,height=90">
+<title>Tunnel Vision 728×90 (spec)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=block">
+<link rel="stylesheet" href="ads.css">
+<style>
+.ad { width: 728px; height: 90px; }
+.ad__photo { left: auto; width: 62%; object-position: 72% 32%; }
+.ad__shade { background: linear-gradient(90deg, var(--ink) 38%, rgba(7,9,11,0.55) 58%, rgba(7,9,11,0) 78%, rgba(7,9,11,0.85) 100%); }
+.ad__strips { left: 40%; right: 26%; }
+.copy { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); }
+.copy > * { position: absolute; left: 0; top: 50%; translate: 0 -50%; white-space: nowrap; }
+.ad__display { font-size: 44px; }
+.ad__meta { font-size: 15px; }
+.right { position: absolute; right: 16px; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 8px; }
+.ad__cta { height: 34px; padding: 0 18px; font-size: 14px; }
+.ad__lockup { font-size: 13px; }
+</style>
+</head>
+<body>
+<a class="ad" href="../landing/" target="_top" aria-label="Everybody gets a tunnel walk. Black Friday Gameday, 27 November, live on Prime Video. Shop the fits. Speculative concept.">
+  <img class="ad__photo" src="../../assets/sm/tv-hero.jpg" alt="">
+  <span class="ad__shade"></span>
+  <span class="ad__strips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <div class="copy" aria-hidden="true">
+    <p class="ad__display" data-f="1">Everybody gets</p>
+    <p class="ad__display" data-f="2">a <em>tunnel walk.</em></p>
+    <div data-f="3"><p class="ad__display" style="font-size:34px">Everybody gets a <em>tunnel walk.</em></p><p class="ad__meta" style="margin-top:4px">Black Friday Gameday · 27 Nov · Live on Prime Video</p></div>
+  </div>
+  <div class="right" data-keep aria-hidden="true"><span class="ad__cta">Shop the fits</span><span class="ad__lockup"><b>PUMA</b><span>×</span><i>prime video</i></span></div>
+  <span class="ad__spec" aria-hidden="true">Spec</span>
+</a>
+<script>var clickTag = "../landing/";</script>
+</body>
+</html>

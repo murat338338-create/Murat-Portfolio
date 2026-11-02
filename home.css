@@ -37,6 +37,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+/* Reveal scales and cut-out shadows may overhang the edge; clip (unlike hidden) keeps sticky elements working. */
+html, body { overflow-x: clip; }
 body {
   margin: 0;
   /* --bg follows the project being read (see arc.js); everything else stays on paper. */
