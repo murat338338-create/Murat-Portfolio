@@ -16,12 +16,14 @@
   else window.addEventListener("resize", fit);
   fit();
 
-  /* ---------- Replay the Lottie banner ---------- */
+  /* ---------- Replay the banners: they play once on load, usually before you scroll to them ---------- */
 
   var replay = document.querySelector("[data-replay]");
-  var lottieFrame = document.querySelector("[data-lottie]");
-  if (replay && lottieFrame) replay.addEventListener("click", function () {
-    lottieFrame.contentWindow.postMessage("tv-replay", "*");
+  if (replay) replay.addEventListener("click", function () {
+    document.querySelectorAll(".adset iframe").forEach(function (frame) {
+      if (frame.hasAttribute("data-lottie")) frame.contentWindow.postMessage("tv-replay", "*");
+      else frame.contentWindow.location.reload();
+    });
   });
 
   /* ---------- A decorative QR pattern for the pause ad (not a real code) ---------- */
