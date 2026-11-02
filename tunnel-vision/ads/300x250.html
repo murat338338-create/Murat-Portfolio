@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="ad.size" content="width=300,height=250">
+<title>Tunnel Vision 300×250 (spec)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=block">
+<link rel="stylesheet" href="ads.css">
+<style>
+.ad { width: 300px; height: 250px; }
+.ad__photo { object-position: 74% 30%; }
+.ad__shade { background: linear-gradient(90deg, rgba(7,9,11,0.88) 0%, rgba(7,9,11,0.35) 62%, rgba(7,9,11,0) 100%), linear-gradient(0deg, rgba(7,9,11,0.9) 0%, rgba(7,9,11,0) 55%); }
+.head { position: absolute; left: 16px; top: 34px; font-size: 52px; }
+.end { position: absolute; left: 16px; right: 16px; bottom: 16px; display: grid; gap: 10px; }
+.end .ad__display { font-size: 38px; }
+.end .ad__meta { font-size: 12.5px; }
+.end .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ad__cta { height: 32px; padding: 0 14px; font-size: 13px; }
+.ad__lockup { font-size: 12.5px; }
+</style>
+</head>
+<body>
+<a class="ad" href="../landing/" target="_top" aria-label="Everybody gets a tunnel walk. Black Friday Gameday, 27 November, live on Prime Video. Shop the fits. Speculative concept.">
+  <img class="ad__photo" src="../../assets/sm/tv-hero.jpg" alt="">
+  <span class="ad__shade"></span>
+  <span class="ad__strips" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <p class="ad__display head" data-f="1" aria-hidden="true">Everybody<br>gets</p>
+  <p class="ad__display head" data-f="2" aria-hidden="true">a <em>tunnel<br>walk.</em></p>
+  <div class="end" data-f="3" aria-hidden="true">
+    <p class="ad__display">Everybody gets<br>a <em>tunnel walk.</em></p>
+    <p class="ad__meta">Black Friday Gameday · 27 Nov · Live on Prime Video</p>
+    <div class="row"><span class="ad__lockup"><b>PUMA</b><span>×</span><i>prime video</i></span><span class="ad__cta">Shop the fits</span></div>
+  </div>
+  <span class="ad__spec" aria-hidden="true">Spec</span>
+</a>
+<script>var clickTag = "../landing/";</script>
+</body>
+</html>

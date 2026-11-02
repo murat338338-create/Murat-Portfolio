@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tunnel Vision · PUMA × Prime Video (speculative concept)</title>
+<meta name="description" content="Speculative campaign landing page by Murat Kurul. Everybody gets a tunnel walk: walk the PUMA Fan Tunnel, watch it live on Prime Video, shop the fits on Amazon. Not affiliated with Amazon, Prime Video or PUMA.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07090B">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap">
+<style>
+/* Tunnel Vision campaign landing page. Structured as Webflow-style sections (section_*, *_component, button is-*)
+   so it can be rebuilt one-to-one in Webflow. */
+:root {
+  --ink: #07090B; --concrete: #101519; --concrete-2: #182025;
+  --line: rgba(242, 239, 232, 0.16); --line-2: rgba(242, 239, 232, 0.3);
+  --bone: #F2EFE8; --bone-2: #BAC3C7; --cyan: #5CE1E6; --red: #E2372B;
+  --gutter: max(16px, 4vw); --max: 1440px;
+  --display: "Archivo", "Arial Narrow", sans-serif;
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--ink); color: var(--bone); font: 400 17px/1.55 var(--display); font-stretch: 100%; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: var(--cyan); color: var(--ink); font-weight: 700; border-radius: 999px; text-decoration: none; }
+.skip-link:focus { top: 12px; }
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); }
+.display { font-family: var(--display); font-weight: 900; font-stretch: 64%; text-transform: uppercase; line-height: 0.86; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+
+/* Spec notice: always first, never dismissible. */
+.spec { background: var(--bone); color: var(--ink); font-size: 13.5px; line-height: 1.4; }
+.spec .container { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; padding-top: 9px; padding-bottom: 9px; }
+.spec a { font-weight: 600; }
+
+/* Lockup: type-only stand-ins, not the brands' real logos. */
+.lockup { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+.lockup__puma { font-weight: 900; font-stretch: 100%; letter-spacing: 0.02em; font-size: 19px; }
+.lockup__x { color: var(--cyan); font-weight: 400; }
+.lockup__prime { font-weight: 700; font-stretch: 100%; font-size: 17px; letter-spacing: -0.01em; text-transform: lowercase; }
+
+.nav { position: sticky; top: 0; z-index: 20; background: rgba(7, 9, 11, 0.78); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); border-bottom: 1px solid var(--line); }
+.nav .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.nav__links { display: flex; gap: 28px; font-size: 15px; }
+.nav__links a { text-decoration: none; color: var(--bone-2); transition: color 160ms; }
+.nav__links a:hover { color: var(--bone); }
+@media (max-width: 860px) { .nav__links { display: none; } }
+
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font: 700 16px/1 var(--display); text-decoration: none; cursor: pointer; border: 0; transition: transform 160ms var(--ease), background-color 160ms, color 160ms; }
+.button:active { transform: scale(0.97); }
+.button.is-light { background: var(--cyan); color: var(--ink); }
+.button.is-light:hover { background: #8CEBEE; }
+.button.is-ghost { background: transparent; color: var(--bone); box-shadow: inset 0 0 0 1.5px var(--line-2); }
+.button.is-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--bone); }
+.button.is-small { min-height: 44px; padding: 0 18px; font-size: 15px; }
+
+/* ---------- Hero ---------- */
+.section_hero { position: relative; min-height: min(100svh, 980px); display: grid; align-items: end; overflow: clip; isolation: isolate; }
+.hero_media { position: absolute; inset: 0; z-index: -2; }
+.hero_media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; transform: scale(1.06); animation: walk-in 9s var(--ease) both; }
+@keyframes walk-in { to { transform: scale(1); } }
+.section_hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background:
+  linear-gradient(90deg, rgba(7,9,11,0.92) 0%, rgba(7,9,11,0.55) 42%, rgba(7,9,11,0) 70%),
+  linear-gradient(0deg, rgba(7,9,11,0.95) 0%, rgba(7,9,11,0) 45%); }
+/* Strip lights flick on one after another as the page opens, like a tunnel waking up. */
+.strips { position: absolute; top: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(8, 1fr); gap: 2vw; padding: 0 var(--gutter); z-index: 1; }
+.strips i { height: 4px; border-radius: 0 0 4px 4px; background: var(--cyan); box-shadow: 0 0 18px 2px rgba(92, 225, 230, 0.7); opacity: 0; animation: flick 900ms steps(1) both; }
+.strips i:nth-child(1) { animation-delay: 120ms } .strips i:nth-child(2) { animation-delay: 220ms } .strips i:nth-child(3) { animation-delay: 300ms } .strips i:nth-child(4) { animation-delay: 460ms }
+.strips i:nth-child(5) { animation-delay: 540ms } .strips i:nth-child(6) { animation-delay: 680ms } .strips i:nth-child(7) { animation-delay: 760ms } .strips i:nth-child(8) { animation-delay: 900ms }
+@keyframes flick { 0% { opacity: 0 } 18% { opacity: 1 } 26% { opacity: 0.15 } 40%, 100% { opacity: 1 } }
+.section_hero { min-height: min(calc(100svh - 100px), 920px); }
+@media (max-width: 760px) { .section_hero::after { background: linear-gradient(0deg, rgba(7,9,11,0.96) 0%, rgba(7,9,11,0.7) 55%, rgba(7,9,11,0.35) 100%); } .hero_media img { object-position: 70% 30%; } }
+.hero_content { padding-top: 120px; padding-bottom: clamp(40px, 7vw, 96px); }
+.hero_title { font-size: clamp(58px, 7.6vw, 140px); max-width: 13.5ch; text-wrap: wrap; }
+.hero_title em { font-style: normal; color: var(--cyan); }
+.hero_sub { max-width: 34ch; margin: 24px 0 0; font-size: clamp(17px, 1.5vw, 21px); color: var(--bone); }
+.hero_actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero_meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line-2); max-width: 640px; font-size: 15px; color: var(--bone-2); }
+.hero_meta strong { color: var(--bone); font-weight: 600; }
+.countdown { font-variant-numeric: tabular-nums; }
+
+/* ---------- How it works ---------- */
+.section { padding: clamp(80px, 11vw, 160px) 0; }
+.section_head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
+.section_head h2 { grid-column: 1 / span 8; font-size: clamp(44px, 7vw, 112px); }
+.section_head p { grid-column: 9 / span 4; margin: 0; color: var(--bone-2); max-width: 36ch; }
+@media (max-width: 860px) { .section_head h2, .section_head p { grid-column: 1 / -1; } }
+.steps_component { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line-2); counter-reset: step; list-style: none; margin: 0; padding: 0; }
+.step { padding: 28px 28px 8px 0; }
+.step + .step { padding-left: 28px; border-left: 1px solid var(--line); }
+.step_no { font-weight: 900; font-stretch: 64%; font-size: 64px; line-height: 1; color: var(--cyan); }
+.step h3 { margin: 18px 0 8px; font-size: 24px; line-height: 1.15; font-weight: 700; }
+.step p { margin: 0; color: var(--bone-2); }
+@media (max-width: 860px) { .steps_component { grid-template-columns: 1fr; } .step + .step { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); } }
+
+/* ---------- Split feature: the walk on screen ---------- */
+.section_watch { background: var(--concrete); }
+.watch_grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.watch_media { position: relative; border-radius: 14px; overflow: hidden; }
+.watch_media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.live { position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(7, 9, 11, 0.72); backdrop-filter: blur(8px); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.3 } }
+.watch_copy h2 { font-size: clamp(44px, 6vw, 96px); }
+.watch_copy p { color: var(--bone-2); margin: 20px 0 0; max-width: 40ch; }
+.schedule { margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line-2); }
+.schedule li { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.schedule time { font-weight: 700; font-variant-numeric: tabular-nums; }
+.schedule span { color: var(--bone-2); }
+@media (max-width: 860px) { .watch_grid { grid-template-columns: 1fr; } }
+
+/* ---------- Shop the fits ---------- */
+.products_component { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 24px); }
+.product { display: flex; flex-direction: column; background: var(--concrete); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.product_media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+.product_media img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease); }
+.product:hover .product_media img { transform: scale(1.04); }
+.tag { position: absolute; left: 12px; top: 12px; padding: 6px 10px; border-radius: 999px; background: var(--bone); color: var(--ink); font-size: 12.5px; font-weight: 700; }
+.product_body { display: grid; gap: 6px; padding: 18px 18px 20px; }
+.product_body h3 { margin: 0; font-size: 21px; line-height: 1.2; }
+.product_body p { margin: 0; color: var(--bone-2); font-size: 15px; }
+.product_body .button { margin-top: 12px; width: 100%; }
+@media (max-width: 860px) { .products_component { grid-template-columns: 1fr; } .product_media { aspect-ratio: 4 / 3; } }
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 50; transform: translate(-50%, 140%); max-width: calc(100% - 32px); padding: 14px 18px; border-radius: 12px; background: var(--bone); color: var(--ink); font-size: 15px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); transition: transform 320ms var(--ease); }
+.toast:not(.is-on) { visibility: hidden; transition: transform 320ms var(--ease), visibility 0s 320ms; }
+.toast.is-on { transform: translate(-50%, 0); }
+
+/* ---------- Fan Tunnel sign-up ---------- */
+.section_signup { position: relative; isolation: isolate; overflow: clip; }
+.signup_bg { position: absolute; inset: 0; z-index: -1; }
+.signup_bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+.signup_bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--ink) 0%, rgba(7,9,11,0.6) 40%, var(--ink) 100%); }
+.signup_inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.signup_inner h2 { font-size: clamp(52px, 9vw, 140px); }
+.signup_inner > p { margin: 20px auto 0; max-width: 44ch; color: var(--bone); }
+.form_component { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; margin-top: 36px; text-align: left; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 14px; font-weight: 600; }
+.field input, .field select { min-height: 48px; width: 100%; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line-2); background: rgba(7, 9, 11, 0.7); color: var(--bone); font: 400 16px var(--display); }
+.field input:focus, .field select:focus { border-color: var(--cyan); outline: none; box-shadow: 0 0 0 3px rgba(92, 225, 230, 0.3); }
+.field .error { min-height: 1.3em; font-size: 13.5px; color: #FF8A80; }
+.form_component .button { align-self: start; margin-top: 26px; }
+.form_note { margin-top: 10px; font-size: 13.5px; color: var(--bone-2); text-align: center; }
+.form_success { margin-top: 36px; padding: 24px; border-radius: 14px; border: 1px solid var(--cyan); background: rgba(92, 225, 230, 0.08); }
+.form_success h3 { margin: 0 0 6px; font-size: 24px; }
+.form_success p { margin: 0; color: var(--bone-2); }
+@media (max-width: 760px) { .form_component { grid-template-columns: 1fr; } .form_component .button { margin-top: 0; width: 100%; } }
+
+/* ---------- Footer ---------- */
+.footer { padding: 48px 0 56px; border-top: 1px solid var(--line); font-size: 14px; color: var(--bone-2); }
+.footer .container { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; align-items: center; }
+.footer p { margin: 0; max-width: 60ch; }
+
+[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 800ms var(--ease), transform 800ms var(--ease); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero_media img, .strips i, .live::before { animation: none; transform: none; opacity: 1; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .product_media img, .toast { transition: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="spec" role="note">
+  <div class="container">
+    <span><strong>Speculative concept</strong> by Murat Kurul. Not affiliated with Amazon, Prime Video or PUMA.</span>
+    <a href="../">Read the case study</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container">
+    <a class="lockup" href="#main" aria-label="Tunnel Vision, PUMA × Prime Video concept, home">
+      <span class="lockup__puma">PUMA</span><span class="lockup__x" aria-hidden="true">×</span><span class="lockup__prime">prime video</span>
+    </a>
+    <nav class="nav__links" aria-label="Page">
+      <a href="#how">How it works</a>
+      <a href="#watch">Watch</a>
+      <a href="#shop">Shop the fits</a>
+      <a href="#tunnel">Fan Tunnel</a>
+    </nav>
+    <a class="button is-light is-small" href="#shop">Shop the fits</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section_hero" aria-labelledby="hero-title">
+    <div class="hero_media"><img src="../../assets/tv-hero.jpg" srcset="../../assets/sm/tv-hero.jpg 800w, ../../assets/tv-hero.jpg 1696w" sizes="100vw" width="1696" height="960" alt="A woman in a black track jacket and red suede sneakers walks toward the camera down a concrete arena tunnel lit by cyan strip lights" fetchpriority="high"></div>
+    <div class="strips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container hero_content">
+      <p class="eyebrow">Tunnel Vision · Black Friday Gameday</p>
+      <h1 class="display hero_title" id="hero-title">Everybody gets a <em>tunnel walk.</em></h1>
+      <p class="hero_sub">Walk the PUMA Fan Tunnel. Watch the best walks live on Prime Video before tip-off. Shop every fit on Amazon.</p>
+      <div class="hero_actions">
+        <a class="button is-light" href="#shop">Shop the fits <span aria-hidden="true">→</span></a>
+        <a class="button is-ghost" href="#tunnel">Get your tunnel walk</a>
+      </div>
+      <p class="hero_meta"><span><strong>Fri 27 Nov</strong> · Live on Prime Video</span><span class="countdown" data-countdown>Tip-off soon</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="container">
+      <div class="section_head" data-reveal>
+        <h2 class="display" id="how-title">The walk is the warm-up.</h2>
+        <p>Players treat the tunnel like a runway. For one night, so does everyone else.</p>
+      </div>
+      <ol class="steps_component" data-reveal>
+        <li class="step"><span class="step_no" aria-hidden="true">01</span><h3>Walk the Fan Tunnel</h3><p>PUMA builds a players’ tunnel at the arena. Fans walk it before the game, lit like the real thing.</p></li>
+        <li class="step"><span class="step_no" aria-hidden="true">02</span><h3>Make the broadcast</h3><p>The best walks air on Prime Video before tip-off, next to the players’ own.</p></li>
+        <li class="step"><span class="step_no" aria-hidden="true">03</span><h3>Vote Fit of the Night</h3><p>Twitch chat picks the winner live. Every look can be bought on Amazon, even mid-game.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section_watch" id="watch" aria-labelledby="watch-title">
+    <div class="container watch_grid">
+      <div class="watch_media" data-reveal><img src="../../assets/tv-fans.jpg" srcset="../../assets/sm/tv-fans.jpg 800w, ../../assets/tv-fans.jpg 1696w" sizes="(min-width: 860px) 55vw, 92vw" width="1696" height="960" alt="Six fans walk arm in arm down a concrete tunnel toward bright arena light, one fist raised" loading="lazy"><span class="live">Live on Prime</span></div>
+      <div class="watch_copy" data-reveal>
+        <p class="eyebrow">Watch</p>
+        <h2 class="display" id="watch-title">Every walk, on the big screen.</h2>
+        <p>Tunnel Vision opens every game in the flight: a short PUMA segment before tip-off, then the fit of the night is crowned at half-time.</p>
+        <ul class="schedule">
+          <li><time datetime="2026-11-27">Fri 27 Nov</time><span>Black Friday Gameday doubleheader · launch night</span></li>
+          <li><time datetime="2026-12-04">4–5 Dec</time><span>Cup quarter-finals · Fan Tunnel on tour</span></li>
+          <li><time datetime="2026-12-08">Tue 8 Dec</time><span>Cup semi-finals</span></li>
+          <li><time datetime="2026-12-11">Fri 11 Dec</time><span>Cup final · Fit of the Season</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="shop" aria-labelledby="shop-title">
+    <div class="container">
+      <div class="section_head" data-reveal>
+        <h2 class="display" id="shop-title">Shop the fits.</h2>
+        <p>Tonight’s tunnel looks, on Amazon. Pause the game and they stay on screen.</p>
+      </div>
+      <div class="products_component">
+        <article class="product" data-reveal>
+          <div class="product_media"><img src="../../assets/tv-sneaker.jpg" srcset="../../assets/sm/tv-sneaker.jpg 800w, ../../assets/tv-sneaker.jpg 1400w" sizes="(min-width: 860px) 31vw, 92vw" width="1400" height="1050" alt="Red suede low-profile sneaker with a white side stripe stepping onto a tunnel floor" loading="lazy" style="object-position:40% 60%"><span class="tag">Fan favourite</span></div>
+          <div class="product_body"><h3>Speedcat OG</h3><p>Red suede, white formstrip, gum-thin sole.</p><button class="button is-light" type="button" data-cart="Speedcat OG">Add to Amazon cart</button></div>
+        </article>
+        <article class="product" data-reveal>
+          <div class="product_media"><img src="../../assets/tv-jacket.jpg" srcset="../../assets/sm/tv-jacket.jpg 540w, ../../assets/tv-jacket.jpg 900w" sizes="(min-width: 860px) 31vw, 92vw" width="900" height="1200" alt="Close-up of a black track jacket shoulder with a single white tape band, lit cyan" loading="lazy"><span class="tag">Tunnel classic</span></div>
+          <div class="product_body"><h3>T7 Track Jacket, Black</h3><p>Single-tape sleeve, high zip collar.</p><button class="button is-light" type="button" data-cart="T7 Track Jacket, Black">Add to Amazon cart</button></div>
+        </article>
+        <article class="product" data-reveal>
+          <div class="product_media"><img src="../../assets/tv-tall.jpg" srcset="../../assets/sm/tv-tall.jpg 540w, ../../assets/tv-tall.jpg 960w" sizes="(min-width: 860px) 31vw, 92vw" width="960" height="1696" alt="A man walks down a lit tunnel in a pale track jacket with dark piping and black trousers" loading="lazy" style="object-position:50% 30%"><span class="tag">New colour</span></div>
+          <div class="product_body"><h3>T7 Track Jacket, Bone</h3><p>Bone with ink piping, relaxed fit.</p><button class="button is-light" type="button" data-cart="T7 Track Jacket, Bone">Add to Amazon cart</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section_signup" id="tunnel" aria-labelledby="tunnel-title">
+    <div class="signup_bg" aria-hidden="true"><img src="../../assets/tv-tunnel.jpg" alt="" width="1920" height="1080" loading="lazy"></div>
+    <div class="container">
+      <div class="signup_inner" data-reveal>
+        <p class="eyebrow">PUMA Fan Tunnel</p>
+        <h2 class="display" id="tunnel-title">Your walk. Their broadcast.</h2>
+        <p>Walks run 90 minutes before tip-off. Pick your city and we’ll save you a slot.</p>
+        <form class="form_component" data-form novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="email-error" required>
+            <span class="error" id="email-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <select id="city" name="city" aria-describedby="city-error" required>
+              <option value="">Choose a city</option>
+              <option>New York</option><option>Los Angeles</option><option>Philadelphia</option><option>San Antonio</option>
+            </select>
+            <span class="error" id="city-error" aria-live="polite"></span>
+          </div>
+          <button class="button is-light" type="submit">Save my slot</button>
+        </form>
+        <div class="form_success" data-success hidden tabindex="-1">
+          <h3>You’re on the list.</h3>
+          <p data-success-text>We’ll email your walk time a week before the game.</p>
+        </div>
+        <p class="form_note">Concept demo: nothing you type leaves this page.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <a class="lockup" href="#main"><span class="lockup__puma">PUMA</span><span class="lockup__x" aria-hidden="true">×</span><span class="lockup__prime">prime video</span></a>
+    <p>Speculative concept by <a href="../../">Murat Kurul</a>, made for a portfolio. Not affiliated with, endorsed by or produced for Amazon, Prime Video or PUMA. Names are used only to describe the idea. Photography is AI-generated.</p>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Days to launch night, in the visitor's own time zone.
+  var cd = document.querySelector("[data-countdown]");
+  if (cd) {
+    var launch = new Date(2026, 10, 27), today = new Date(); today.setHours(0, 0, 0, 0);
+    var days = Math.round((launch - today) / 864e5);
+    cd.textContent = days > 1 ? days + " days to tip-off" : days === 1 ? "Tip-off tomorrow" : days === 0 ? "Live tonight" : "Replays on Prime Video";
+  }
+
+  var els = document.querySelectorAll("[data-reveal]");
+  if (reduce || !("IntersectionObserver" in window)) els.forEach(function (el) { el.classList.add("is-in"); });
+  else {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  // The cart buttons are a demo: say so instead of pretending.
+  var toast = document.querySelector("[data-toast]"), timer;
+  document.querySelectorAll("[data-cart]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      toast.textContent = b.dataset.cart + ": on the live campaign this adds to your Amazon cart. This concept adds nothing.";
+      toast.classList.add("is-on");
+      clearTimeout(timer); timer = setTimeout(function () { toast.classList.remove("is-on"); }, 4200);
+    });
+  });
+
+  // Sign-up: validate in place, then confirm without sending anything.
+  var form = document.querySelector("[data-form]");
+  if (form) form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = form.email, city = form.city, ok = true;
+    var emailErr = document.getElementById("email-error"), cityErr = document.getElementById("city-error");
+    emailErr.textContent = ""; cityErr.textContent = "";
+    email.removeAttribute("aria-invalid"); city.removeAttribute("aria-invalid");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { emailErr.textContent = "Enter an email like name@example.com."; email.setAttribute("aria-invalid", "true"); ok = false; }
+    if (!city.value) { cityErr.textContent = "Choose the city you’ll walk in."; city.setAttribute("aria-invalid", "true"); if (ok) city.focus(); ok = false; }
+    if (!ok) { if (email.getAttribute("aria-invalid")) email.focus(); return; }
+    var done = document.querySelector("[data-success]");
+    document.querySelector("[data-success-text]").textContent = "Your " + city.value + " walk time arrives by email a week before the game. (Concept demo: nothing was sent.)";
+    form.hidden = true; done.hidden = false; done.focus();
+  });
+})();
+</script>
+</body>
+</html>

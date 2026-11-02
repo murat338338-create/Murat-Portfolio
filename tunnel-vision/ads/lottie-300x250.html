@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="ad.size" content="width=300,height=250">
+<title>Tunnel Vision animated 300×250, Lottie (spec)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=block">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: transparent; }
+.ad { position: relative; display: block; width: 300px; height: 250px; overflow: hidden; background: #07090B; border: 1px solid #2A3238; }
+.ad:focus-visible { outline: 2px solid #5CE1E6; outline-offset: -3px; }
+#stage { position: absolute; inset: -1px; }
+</style>
+</head>
+<body>
+<a class="ad" href="../landing/" target="_top" aria-label="Everybody gets a tunnel walk. Black Friday Gameday, 27 November, live on Prime Video. Shop the fits. Speculative concept."><div id="stage" aria-hidden="true"></div></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script>
+var clickTag = "../landing/";
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var anim = lottie.loadAnimation({ container: document.getElementById("stage"), renderer: "svg", loop: false, autoplay: false, path: "tunnel-vision-300x250.json" });
+  // Plays once and holds the end frame; reduced motion jumps straight to it.
+  anim.addEventListener("DOMLoaded", function () {
+    var start = function () { if (reduce) anim.goToAndStop(anim.totalFrames - 1, true); else anim.play(); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(start); else start();
+  });
+  window.addEventListener("message", function (e) {
+    if (e.data === "tv-replay" && !reduce) anim.goToAndPlay(0, true);
+  });
+})();
+</script>
+</body>
+</html>

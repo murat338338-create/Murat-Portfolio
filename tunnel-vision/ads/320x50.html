@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="ad.size" content="width=320,height=50">
+<title>Tunnel Vision 320×50 (spec)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=block">
+<link rel="stylesheet" href="ads.css">
+<style>
+.ad { width: 320px; height: 50px; }
+.ad__photo { left: auto; width: 46%; object-position: 72% 28%; }
+.ad__shade { background: linear-gradient(90deg, var(--ink) 52%, rgba(7,9,11,0.3) 75%, rgba(7,9,11,0.7) 100%); }
+.ad__strips { left: 56%; right: 22%; }
+.copy > * { position: absolute; left: 10px; top: 50%; translate: 0 -50%; white-space: nowrap; }
+.ad__display { font-size: 24px; }
+.ad__meta { font-size: 12px; }
+.ad__cta { position: absolute; right: 8px; top: 50%; translate: 0 -50%; height: 30px; padding: 0 12px; font-size: 12.5px; }
+.ad__spec { bottom: 2px; right: auto; left: 10px; font-size: 7px; }
+</style>
+</head>
+<body>
+<a class="ad" href="../landing/" target="_top" aria-label="Everybody gets a tunnel walk. 27 November, live on Prime Video. Shop the fits. Speculative concept.">
+  <img class="ad__photo" src="../../assets/sm/tv-hero.jpg" alt="">
+  <span class="ad__shade"></span>
+  <span class="ad__strips" aria-hidden="true"><i></i><i></i><i></i></span>
+  <div class="copy" aria-hidden="true">
+    <p class="ad__display" data-f="1">Everybody gets</p>
+    <p class="ad__display" data-f="2">a <em>tunnel walk.</em></p>
+    <div data-f="3"><p class="ad__display" style="font-size:19px">Your <em>tunnel walk.</em></p><p class="ad__meta">27 Nov · Prime Video</p></div>
+  </div>
+  <span class="ad__cta" data-keep aria-hidden="true">Shop</span>
+  <span class="ad__spec" aria-hidden="true">Spec</span>
+</a>
+<script>var clickTag = "../landing/";</script>
+</body>
+</html>
