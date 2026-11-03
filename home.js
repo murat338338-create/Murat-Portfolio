@@ -145,9 +145,9 @@
     fresha:  { num: "03", name: "Fresha",      kind: "Food-safety scanner and app",  href: "fresha/" },
     liman:   { num: "04", name: "Liman",       kind: "My own label",                 href: "liman/" },
     postura: { num: "05", name: "Postura",     kind: "Posture wearable",             href: "postura/" },
-    night:   { num: "06", name: "Night Court", kind: "Streetball warm-up capsule",   href: "night-court/" },
-    anatude: { num: "07", name: "Anatude",     kind: "Modular outdoor system",       href: "#anatude" },
-    ring:    { num: "11", name: "Signet ring", kind: "Hand-made silver",             href: "#more" }
+    night:   { num: "09.3", name: "Night Court", kind: "Personal project · Apparel",   href: "night-court/" },
+    anatude: { num: "09.4", name: "Anatude",     kind: "Group project · Outdoor apparel",       href: "#anatude" },
+    ring:    { num: "09.5", name: "Signet ring", kind: "Hand-made silver",             href: "#more" }
   };
   var CARDS = [
     ["tunnel", "tv-hero"], ["fresha", "fresha-device"], ["liman", "liman-look-1"], ["night", "nc-tokyo"], ["aero", "aero-hero"],
