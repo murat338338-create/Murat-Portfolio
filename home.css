@@ -418,6 +418,14 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
 .outpace__shot { grid-column: 1 / span 7; aspect-ratio: 16 / 9; }
 .outpace__info { grid-column: 9 / span 4; align-self: end; }
 .outpace__info .body { margin-top: 12px; }
+/* Drape, a personal UX project: phones on the left, a short summary on the right. */
+#drape { margin-top: clamp(72px, 9vw, 128px); }
+.drape { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 40px; align-items: center; }
+.drape__shot { grid-column: 2 / span 5; aspect-ratio: 1200 / 1207; }
+.drape__info { grid-column: 8 / span 5; }
+.drape__info .body { margin-top: 12px; }
+.drape__info .tools { margin-top: 16px; }
+.drape__info .link { display: inline-flex; margin-top: 20px; }
 .play {
   display: inline-flex; align-items: center; gap: 10px; margin-top: 24px;
   padding: 12px 20px; border-radius: 999px; background: var(--ink); color: var(--paper);
@@ -667,6 +675,9 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
   .project__text, .project--flip .project__text { grid-column: 1; grid-row: 2; position: static; }
   .project__media, .project--flip .project__media { grid-column: 1; grid-row: 1; }
   .outpace__shot, .outpace__info, .about__portrait, .about__main { grid-column: 1; }
+  .drape { grid-template-columns: 1fr; }
+  .drape__shot { grid-column: 1; max-width: 460px; }
+  .drape__info { grid-column: 1; }
   .ledger { grid-template-columns: auto minmax(0, 1fr) auto; }
   .ledger__kind { grid-column: 2 / -1; grid-row: 2; }
   .about__portrait { max-width: 420px; }
