@@ -39,7 +39,7 @@ jobs:
           mkdir -p _site/uploads
           cp -R index.html site.css site.js home.css home.js case.css case.js favicon.svg *.dc.html assets aero fresha liman postura night-court privacy tunnel-vision drape _site/
           rm _site/tunnel-vision/ads/make_lottie.py
-          cp uploads/Murat_Kurul_CV_and_Portfolio.pdf uploads/Murat_Kurul_UX_Portfolio.pdf _site/uploads/
+          cp uploads/Murat_Kurul_CV_and_Portfolio.pdf _site/uploads/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
