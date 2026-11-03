@@ -80,6 +80,9 @@ body.case { background: var(--bg, var(--paper)); }
 /* Wide sheets scroll sideways on small screens instead of shrinking past legibility. */
 .pan { overflow-x: auto; border-radius: var(--r-md); background: var(--bg, var(--paper)); -webkit-overflow-scrolling: touch; }
 .pan img { width: 100%; min-width: 760px; height: auto; mix-blend-mode: multiply; }
+/* Phone line-ups in a pan keep their own colours and stay legible on phones. */
+.pan.is-cutout { overflow-y: hidden; }
+.pan.is-cutout img { min-width: 1100px; mix-blend-mode: normal; }
 .pan:focus-visible { outline-offset: 4px; }
 .pan-hint { display: none; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
 @media (max-width: 760px) { .pan-hint { display: block; } }
