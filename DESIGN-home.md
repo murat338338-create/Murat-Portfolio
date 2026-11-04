@@ -71,10 +71,10 @@ The page reads as numbered chapters (Selected work, Research and industry, Digit
 
 Researched from Awwwards and Muzli portfolio picks (Luca Nardi's typographic index, Robin Noguier's progress rail, scroll-reactive images and per-project colour), adapted to this theme:
 
-- **Index**: the five selected projects as hero-size serif rows on hairlines. Pointing at a row dims the rest, slides it in italic, and a thumbnail follows the pointer on critically damped springs. Mouse only; on touch it is a plain list.
+- **Index**: the six selected projects as hero-size serif rows on hairlines. Pointing at a row dims the rest, slides it in italic, and a thumbnail follows the pointer on critically damped springs. Mouse only; on touch it is a plain list.
 - **Floating pill**: past the sky the header detaches into a centred paper-glass pill. Bar and pill swap behind a 160ms fade so layout never animates.
-- **Rail**: while Selected work is on screen, a tick rail in the right margin marks the current project (number / 05); hovering a tick names it. Hidden under 1240px so it never covers copy.
-- **Project tint**: `--bg` washes the page in the current project's tone (concrete, stone, sage, terracotta, sky) and returns to paper outside Selected work.
+- **Rail**: while Selected work is on screen, a tick rail in the right margin marks the current project (number / 06); hovering a tick names it. Hidden under 1240px so it never covers copy.
+- **Project tint**: `--bg` washes the page in the current project's tone (concrete, stone, sage, bone, terracotta, sky) and returns to paper outside Selected work.
 - **Media**: project pictures open with a curtain (clip-path) and settle from 1.14 scale; while scrolling they skew up to ±3.2° with scroll speed and spring back.
 - **View label**: over anything that opens a project (project pictures and the arc's cards), an 80px ink disc (56px and ring-less over the arc's small cards) grows out of the mouse pointer on a slightly springy reveal. It carries the project's name in Instrument Serif italic, an arrow in the project's tone, a hairline ring in that tone, and "View case study" set around the edge. The ring turns with how far the pointer travels and eases to a stop; it never spins on its own. Pressing shrinks it to 0.88. It steps aside while the arc is dragged. On touch screens, and for anyone with reduced motion, a frosted "View *Project* ↗" tag sits on the picture instead. Mouse versus touch is decided by the input actually used, not once at load.
 - **Signature**: the page ends on the name set across the full width, cropped on its baseline, with live London time in the footer.
@@ -94,7 +94,7 @@ Frosted surfaces use one recipe: 16px blur, 72% paper fill, inset highlight. Und
 
 ## Case studies
 
-Each project page (tunnel-vision/, aero/, fresha/, liman/, postura/, night-court/) and the privacy page load home.css then case.css and case.js. The page is washed in its project's tone (the same tints as the home page). Structure follows the case-study skill (owl-listener/designer-skills): an "All work" link, a ledger with the project number, type and year, the title at hero size, a one-line pitch, the intro, and a facts panel whose first row is My role. Then a full-width cover, numbered chapters with a sticky "On this page" index that tracks the section in view, a large Next project panel, and the signature footer. A hairline at the top of the window shows reading progress.
+Each project page (tunnel-vision/, aero/, fresha/, taigh-clo/, liman/, postura/, night-court/) and the privacy page load home.css then case.css and case.js. The page is washed in its project's tone (the same tints as the home page). Structure follows the case-study skill (owl-listener/designer-skills): an "All work" link, a ledger with the project number, type and year, the title at hero size, a one-line pitch, the intro, and a facts panel whose first row is My role. Then a full-width cover, numbered chapters with a sticky "On this page" index that tracks the section in view, a large Next project panel, and the signature footer. A hairline at the top of the window shows reading progress.
 
 Where the browser supports cross-document view transitions, navigating between pages cross-fades and each project title (view-transition-name: title-<project>) glides from the home page into its case study. Reduced motion turns this off.
 
@@ -113,3 +113,7 @@ AI-generated imagery is labelled where it appears. Concept projects in "Next" ar
 ## Tunnel Vision
 
 The one case study whose work is dark. Its campaign pieces (pitch slides, Fire TV, pause ad and Twitch screens) are `.tv-surface` frames drawn in container-query units so each scales as a single picture; the page around them keeps the Harbour paper and its concrete tint. The campaign has its own small system: Ink #07090B, Tunnel cyan #5CE1E6 (light and every CTA), Speedcat red #E2372B (dots and swatches only; it fails contrast under text), Bone #F2EFE8, set in Archivo Extra Condensed Black. The landing page (tunnel-vision/landing/) and the HTML5 ads (tunnel-vision/ads/) are standalone pages in that system. The Lottie banner is generated by tunnel-vision/ads/make_lottie.py.
+
+## Competition entries
+
+Taigh Clò (taigh-clo/) is an entry to the Vizcom Tiny Home Challenge 2026 and Fresha is an iF Design Award competition project, 2025/26. Both carry an `.entry-tag`. Word it as an entry until a result is confirmed, never as a win. Taigh Clò's page adds tc.css and tc.js for its cover clip and iteration stepper; its site photos are CC BY-SA 2.0 and must keep their credits, and its persona is fictional and labelled as such.

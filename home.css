@@ -328,6 +328,10 @@ button { font: inherit; color: inherit; }
 .project__title .jp { display: block; margin-bottom: 10px; font: 500 15px/1 var(--sans); letter-spacing: 0.3em; color: var(--ink-3); }
 .project__line { margin-top: 20px; font: 400 23px/1.25 var(--serif); letter-spacing: -0.008em; max-width: 22ch; }
 .project__text .body { margin-top: 20px; font-size: 16.5px; }
+/* Names a competition a project was made for: an entry, never a claim of a win. */
+.entry-tag { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 6px 13px 6px 11px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 13.5px; line-height: 1.3; }
+.entry-tag::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.project__line + .entry-tag + .body { margin-top: 18px; }
 .tools { margin-top: 22px; font-size: 14px; color: var(--ink-3); }
 .project__text .link { margin-top: 26px; }
 .swatches { display: flex; gap: 6px; margin-top: 22px; }

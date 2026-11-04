@@ -143,17 +143,18 @@
     tunnel:  { num: "01", name: "Tunnel Vision", kind: "PUMA × Prime Video spec campaign", href: "tunnel-vision/" },
     aero:    { num: "02", name: "AERØ",        kind: "Sport product and brand",      href: "aero/" },
     fresha:  { num: "03", name: "Fresha",      kind: "Food-safety scanner and app",  href: "fresha/" },
-    liman:   { num: "04", name: "Liman",       kind: "My own label",                 href: "liman/" },
-    postura: { num: "05", name: "Postura",     kind: "Posture wearable",             href: "postura/" },
-    night:   { num: "09.3", name: "Night Court", kind: "Personal project · Apparel",   href: "night-court/" },
-    anatude: { num: "09.4", name: "Anatude",     kind: "Group project · Outdoor apparel",       href: "#anatude" },
-    ring:    { num: "09.5", name: "Signet ring", kind: "Hand-made silver",             href: "#more" }
+    taigh:   { num: "04", name: "Taigh Clò",   kind: "Tiny home · Vizcom competition entry", href: "taigh-clo/" },
+    liman:   { num: "05", name: "Liman",       kind: "My own label",                 href: "liman/" },
+    postura: { num: "06", name: "Postura",     kind: "Posture wearable",             href: "postura/" },
+    night:   { num: "10.3", name: "Night Court", kind: "Personal project · Apparel",   href: "night-court/" },
+    anatude: { num: "10.4", name: "Anatude",     kind: "Group project · Outdoor apparel",       href: "#anatude" },
+    ring:    { num: "10.5", name: "Signet ring", kind: "Hand-made silver",             href: "#more" }
   };
   var CARDS = [
     ["tunnel", "tv-hero"], ["fresha", "fresha-device"], ["liman", "liman-look-1"], ["night", "nc-tokyo"], ["aero", "aero-hero"],
     ["postura", "postura-wrist"], ["anatude", "anatude-lineup"], ["fresha", "fresha-app"], ["liman", "liman-look-street"],
-    ["night", "nc-jacket"], ["tunnel", "tv-tall"], ["aero", "aero-ad"], ["postura", "postura-bands"], ["liman", "liman-poster"],
-    ["ring", "more-ring"], ["anatude", "anatude-moodboard"]
+    ["taigh", "tc-hero"], ["night", "nc-jacket"], ["tunnel", "tv-tall"], ["aero", "aero-ad"], ["postura", "postura-bands"], ["liman", "liman-poster"],
+    ["taigh", "tc-loom"], ["ring", "more-ring"], ["anatude", "anatude-moodboard"]
   ];
 
   var stage = document.querySelector("[data-stage]");
@@ -555,7 +556,7 @@
 
   /* "View case study" label: follows the mouse over anything that opens a project.
      Ink disc, the project's name in serif, a ring of text that turns as you move, a hairline in the project's tone. */
-  var TONES = { tunnel: "#C9DDE0", aero: "#ECEDEA", fresha: "#C9DCC0", liman: "#F0C9AE", postura: "#C6D6EA", night: "#D3CCEA", anatude: "#C8DAE3", ring: "#E2DCD0" };
+  var TONES = { tunnel: "#C9DDE0", aero: "#ECEDEA", fresha: "#C9DCC0", taigh: "#DCCBA6", liman: "#F0C9AE", postura: "#C6D6EA", night: "#D3CCEA", anatude: "#C8DAE3", ring: "#E2DCD0" };
   var cursorEl = document.querySelector("[data-cursor-el]");
   var curName = cursorEl.querySelector("[data-cursor-name]");
   var curRing = cursorEl.querySelector(".cursor__ring");
