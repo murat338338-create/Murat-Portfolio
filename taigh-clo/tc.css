@@ -1,0 +1,103 @@
+/* Taigh Clò: page-only pieces on top of case.css. The page tint matches the process book's bone
+   paper, so the plan and the 3D sheet sit on it without an edge. */
+
+/* The g in Taigh hangs lower than other titles' letters, so the line below needs more room. */
+.case-title + .case-line { margin-top: clamp(26px, 3.4vw, 50px); }
+.case-hero .entry-tag { margin-top: clamp(20px, 2.4vw, 32px); }
+/* Lets the wide sheets scroll inside their .pan instead of pushing the column past the screen on phones. */
+.case-chapters { min-width: 0; }
+
+/* The cover is a looping clip, wider than the usual 16:9 cover. */
+.case-cover .frame.tc-reel { aspect-ratio: 1600 / 698; background: #2B2C2B; }
+.tc-reel video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tc-reel__toggle {
+  position: absolute; right: 12px; bottom: 12px; min-width: 68px; min-height: 44px; padding: 0 16px;
+  border: 0; border-radius: 999px; font: 500 14px/1 var(--sans); color: #fff; cursor: pointer;
+  background: rgba(20, 20, 18, 0.62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.tc-reel__toggle:hover { background: rgba(20, 20, 18, 0.82); }
+.tc-reel__toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.case-media figcaption a { color: inherit; }
+.case-media figcaption b { font-weight: 600; color: var(--ink); }
+
+/* Two real site photos at one height: their widths follow their aspect ratios. */
+.tc-site { display: grid; grid-template-columns: 1.4988fr 0.6594fr; gap: clamp(12px, 1.6vw, 24px); }
+.tc-context { display: grid; grid-template-columns: 0.8fr 1.7917fr; gap: clamp(12px, 1.6vw, 24px); }
+.tc-elevations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
+
+.tc-quote { margin-top: clamp(24px, 3vw, 40px); padding-left: clamp(16px, 2vw, 24px); border-left: 2px solid var(--accent); max-width: 34em; }
+.tc-quote p { font: italic 400 clamp(26px, 3vw, 42px)/1.12 var(--serif); letter-spacing: -0.012em; text-wrap: balance; }
+.tc-quote footer { margin-top: 12px; font-size: 14px; color: var(--ink-3); }
+
+/* A day as a timeline on one hairline. */
+.tc-day { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: clamp(12px, 1.6vw, 24px); margin-top: clamp(28px, 3.4vw, 44px); border-top: 1px solid var(--ink); }
+.tc-day li { position: relative; padding-top: 14px; }
+.tc-day li::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.tc-day time { display: block; font: 400 26px/1 var(--serif); font-variant-numeric: tabular-nums; }
+.tc-day span { display: block; margin-top: 6px; font-size: 14.5px; line-height: 1.35; color: var(--ink-2); }
+
+.tc-needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(24px, 3vw, 40px); margin-top: clamp(28px, 3.4vw, 44px); }
+.tc-needs div { padding-top: 12px; border-top: 1px solid var(--line-2); }
+.tc-needs dt { font: 400 clamp(26px, 2.6vw, 36px)/1.05 var(--serif); letter-spacing: -0.012em; }
+.tc-needs dd { margin-top: 8px; font-size: 15px; color: var(--ink-2); }
+
+.tc-mats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); margin-top: clamp(24px, 3vw, 36px); }
+.tc-mats li { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line-2); }
+.tc-mats img { width: 72px; height: 72px; clip-path: circle(47%); }
+.tc-mats h3 { font-weight: 500; font-size: 15.5px; line-height: 1.3; }
+.tc-mats p { margin-top: 2px; font-size: 14.5px; line-height: 1.4; color: var(--ink-2); }
+
+/* Iteration stepper: the renders share one canvas and camera, so stacking them shows only what changed.
+   Without JavaScript they simply run one under the other. */
+.js .tc-steps__stage { display: grid; aspect-ratio: 1584 / 672; }
+.js .tc-steps__stage img { grid-area: 1 / 1; opacity: 0; transition: opacity 320ms var(--ease-out), transform 1400ms var(--ease-out); }
+.js .tc-steps__stage img.is-current { opacity: 1; }
+.tc-steps__nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
+.tc-steps__nav[hidden] { display: none; }
+.tc-steps__nav button {
+  min-height: 44px; padding: 10px 12px; text-align: left; cursor: pointer;
+  font: 500 14px/1.2 var(--sans); color: var(--ink); background: transparent;
+  border: 1px solid var(--line-2); border-radius: 10px;
+  transition: background-color var(--ui) var(--ease-out), color var(--ui) var(--ease-out), border-color var(--ui) var(--ease-out);
+}
+.tc-steps__nav .num { display: block; margin-bottom: 3px; font-weight: 400; font-size: 12.5px; opacity: 0.72; }
+.tc-steps__nav button:hover { border-color: var(--ink); }
+.tc-steps__nav button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.tc-steps__nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* These sheets carry the page's own paper colour, so no multiply: it would darken them into a visible box. */
+.pan img { mix-blend-mode: normal; }
+.tc-pan-dark { background: #161616; }
+@media (max-width: 760px) { .tc-pan-dark img { min-width: 1100px; } }
+
+.tc-figures { display: flex; flex-wrap: wrap; gap: 12px clamp(28px, 4vw, 64px); margin-top: clamp(24px, 3vw, 36px); }
+.tc-figures dt { font: 400 clamp(30px, 3.4vw, 48px)/1 var(--serif); letter-spacing: -0.02em; }
+.tc-figures dd { margin-top: 6px; font-size: 14px; color: var(--ink-3); }
+
+.tc-note { margin-top: 24px; max-width: 60ch; font-size: 13.5px; color: var(--ink-3); }
+
+/* The storm closes the page, edge to edge, with the book's last line on its dark sky. */
+.tc-end { position: relative; margin-top: var(--section); overflow: hidden; background: #0B1320; color: #F3EEE4; }
+.tc-end img { display: block; width: 100%; min-height: 520px; max-height: 92vh; object-fit: cover; object-position: 60% 60%; }
+.tc-end::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9, 15, 26, 0.72) 0%, rgba(9, 15, 26, 0.28) 42%, rgba(9, 15, 26, 0) 66%); pointer-events: none; }
+.tc-end__text { position: absolute; z-index: 1; inset: clamp(32px, 6vw, 88px) 0 auto; }
+.tc-end h2 { max-width: 12ch; font: 400 clamp(46px, 7.4vw, 124px)/0.92 var(--serif); letter-spacing: -0.03em; }
+.tc-end p { margin-top: clamp(14px, 1.8vw, 24px); max-width: 34ch; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.4; }
+
+@media (max-width: 960px) {
+  .tc-day { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--ink); }
+  .tc-day li { padding: 0 0 18px 18px; }
+  .tc-day li:last-child { padding-bottom: 0; }
+  .tc-day li::before { top: 8px; left: -4px; }
+  .tc-needs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .case-cover .frame.tc-reel { aspect-ratio: 16 / 10; }
+  .tc-site, .tc-context, .tc-elevations, .tc-needs, .tc-mats { grid-template-columns: 1fr; }
+  .tc-steps__nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tc-end img { min-height: 560px; object-position: 62% 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .tc-steps__stage img { transition: none; }
+}
