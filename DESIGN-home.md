@@ -81,6 +81,14 @@ Researched from Awwwards and Muzli portfolio picks (Luca Nardi's typographic ind
 
 All of it is off under reduced motion except the colour tint, which changes without a transition.
 
+## Shared motion (motion.js)
+
+Inspired by how landonorris.com moves, kept in the Harbour palette. One script on every page, off entirely under `prefers-reduced-motion`.
+
+- **Weighted scrolling:** mouse wheels and trackpads ease towards where they were sent (11% of the remaining distance per frame, about half a second per notch). Touch, keys, the scrollbar and anchor links stay native, and any of them cancels a glide. Elements that scroll on their own keep the wheel; mark others with `data-wheel-native`.
+- **Layered depth:** the small image over each project's lead image, the three Next briefs, the More work items and the portrait drift against the scroll at their own rates (`translate`, capped at 90px, halved on phones), so stacked images part like a collage.
+- **Signature:** when the footer name comes into view, "Murat Kurul" is written across it in accent ink (Mrs Saint Delafield), outline first, then filled, revealed left to right like a pen.
+
 ## Blur
 
 Taken from the shovel.studio reference (frosted pills over photos, blur crossfades, photos melting into blur at their edges). Blur is used only where it does a job, and never animated on a large surface:
