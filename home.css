@@ -668,6 +668,13 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
   color: var(--ink);
 }
 .signature span { display: inline-block; }
+/* The signature written in ink across the name as it comes into view (motion.js draws it). */
+.signature { position: relative; }
+.autograph { position: absolute; left: 50%; top: 18%; width: min(64%, 980px); height: auto; translate: -38% 0; rotate: -6deg; overflow: visible; pointer-events: none; }
+.autograph__ink { font: 400 230px/1 "Mrs Saint Delafield", cursive; letter-spacing: 0; fill: transparent; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+.autograph__pen { transform: scaleX(0); transform-box: fill-box; transform-origin: 0 50%; }
+.is-signing .autograph__pen { transform: scaleX(1); transition: transform 2300ms cubic-bezier(0.45, 0.05, 0.35, 1); }
+.is-signing .autograph__ink { stroke-dashoffset: 0; fill: var(--accent); transition: stroke-dashoffset 2600ms cubic-bezier(0.3, 0, 0.2, 1), fill 800ms var(--ease-out) 1700ms; }
 .footer time { font-variant-numeric: tabular-nums; }
 
 /* ---------- Scroll reveals ---------- */
