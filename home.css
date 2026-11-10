@@ -360,6 +360,9 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
   transition: outline-color 700ms var(--ease-out);
 }
 .project--flip .compose__inset { right: auto; left: -4%; }
+/* A device render standing over the lead image's corner: no card, just the object and its own shadow. */
+.compose__device { position: absolute; width: 23%; right: -3%; bottom: -15%; aspect-ratio: 600 / 1086; background: transparent; border-radius: 0; }
+.compose__device img { object-fit: contain; }
 .compose__row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 1.4vw, 20px); margin-top: clamp(12px, 1.4vw, 20px); }
 .compose__row .frame { aspect-ratio: 1; }
 /* Fresha: the readout stays square beside the wide three-phone line-up, at one shared height. */
@@ -650,7 +653,7 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
 .js .project__media .frame img { transform: scale(1.14); transition: transform 1400ms var(--ease-out); }
 .js .project__media.is-in .frame { clip-path: inset(0 0 0 0 round 12px); }
 .js .project__media.is-in .frame img { transform: none; }
-.js .project__media.is-in .compose__inset { transition-delay: 220ms; }
+.js .project__media.is-in .compose__inset, .js .project__media.is-in .compose__device { transition-delay: 220ms; }
 .js .project__media.is-in a.frame:hover img, .js .project__media.is-in .media-link:hover .frame img { transform: scale(1.025); transition-duration: 900ms; }
 .project__media > :not(.caption) { will-change: transform; }
 
@@ -694,6 +697,7 @@ a.frame:hover img, .media-link:hover .frame img { transform: scale(1.025); }
   .concept:nth-child(2) { margin-top: 0; }
   .compose__inset { width: 40%; right: 4%; bottom: -10%; }
   .project--flip .compose__inset { left: auto; right: 4%; }
+  .compose__device { width: 27%; right: 3%; bottom: -12%; }
 }
 @media (max-width: 760px) {
   .header.is-solid { width: calc(100% - 2 * var(--gutter)); padding-left: 18px; justify-content: space-between; }

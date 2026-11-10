@@ -51,7 +51,7 @@ body.case { background: var(--bg, var(--paper)); }
 .case-toc a span:first-child { font-variant-numeric: tabular-nums; }
 .case-toc a:hover, .case-toc a[aria-current="true"] { color: var(--ink); }
 .case-toc a[aria-current="true"] span:first-child { color: var(--accent); }
-.case-chapters { grid-column: 4 / span 9; }
+.case-chapters { grid-column: 4 / span 9; min-width: 0; } /* lets wide sheets scroll inside the column instead of widening it */
 
 .case-chapter { padding-bottom: clamp(96px, 11vw, 168px); scroll-margin-top: calc(var(--header-h) + 32px); }
 .case-chapter:last-child { padding-bottom: 0; }
@@ -72,6 +72,10 @@ body.case { background: var(--bg, var(--paper)); }
 .frame.is-cutout { background: transparent; }
 .frame.is-cutout img { filter: drop-shadow(0 14px 16px rgba(27, 31, 44, 0.12)) drop-shadow(0 3px 4px rgba(27, 31, 44, 0.07)); }
 .case-media .frame.is-cutout img { padding: 2% 4% 7%; }
+/* Renders that carry their own soft shadow. */
+.frame.is-cutout.has-shadow img { filter: none; }
+/* A sheet that only needs to scroll on small screens. */
+@media (min-width: 761px) { .pan.pan--fit.is-cutout img { min-width: 0; } }
 .case-media.is-narrow { max-width: 520px; }
 .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); align-items: start; }
 .case-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
